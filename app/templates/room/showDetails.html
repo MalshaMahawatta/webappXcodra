@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<div class="ui form-user center raised very padded text container segment">
+		{% if current_user.is_authenticated %}
+	  	<h2 class="ui header">Room Details</h2>
+            {{ rooms[0].type }}
+	{% endif %}
+	</div>
+
+{% endblock %}

@@ -1,10 +1,10 @@
 from app import db, bcrypt
 from sqlalchemy.ext.hybrid import hybrid_property
 from flask.ext.login import UserMixin
+from sqlalchemy.orm import relationship
 
 
 class User(db.Model, UserMixin):
-
     ''' A website user. '''
 
     __tablename__ = 'users'
@@ -29,31 +29,36 @@ class User(db.Model, UserMixin):
     def get_id(self):
         return self.email
 
-class Room(db.Model, UserMixin):
 
+class Room(db.Model, UserMixin):
     ''' room details. '''
 
     __tablename__ = 'rooms'
-    number = db.Column(db.Integer,primary_key=True)
-    name = db.Column(db.String)
-    creditCard = db.Column(db.Boolean)
-    bookedBy=db.Column(db.String)
-    duration=db.Column(db.String)
+    number = db.Column(db.Integer, primary_key=True)
+    type = db.Column(db.String)
+    #creditCard = db.Column(db.Boolean)
+    bookedBy = db.Column(db.String)
+    duration = db.Column(db.String)
+    availability = db.Column(db.Boolean)
+    guest_number = db.Column(db.Integer, db.ForeignKey('guests.number'))
+    guests = relationship("Guest", uselist=False, back_populates="rooms")
 
     def get_id(self):
         return self.number
 
 
 class Guest(db.Model, UserMixin):
-
     ''' room details. '''
 
     __tablename__ = 'guests'
-    number = db.Column(db.Integer,primary_key=True)
+    number = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String)
     availability = db.Column(db.Boolean)
-    bookedBy=db.Column(db.String)
-    duration=db.Column(db.String)
+    bookedBy = db.Column(db.String)
+    duration = db.Column(db.String)
+    rooms = relationship("Room", back_populates="guests")
+
+
 
     def get_id(self):
         return self.number

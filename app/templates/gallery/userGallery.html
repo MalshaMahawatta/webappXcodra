@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+    <div id="banner">
+        <img src="/app/static/img/3page-img13.jpg" width="790" height="290" id="Image1"
+             onMouseOver="MM_swapImage('Image1','','/app/static/img/banner_bg.jpg',1)" onMouseOut="MM_swapImgRestore()">
+    </div>
+
+    <div id="content">
+        <!-- InstanceBeginEditable name="EditRegion3" -->
+
+        <h1>Photo gallery </h1>
+
+
+        <div id="gallery">
+            <img class="ui medium image error-image" src="{{ url_for('static', filename='img/error.png') }}">
+            <img src="D:/WebAppXcodra/webappXcodra/app/static/img/index1.jpg" width="150" height="100">
+            <img src="app/static/img/image_01.jpg" width="150" height="100">
+            <img src="/app/static/img/3page-img13.jpg" width="150" height="100">
+            <img src="app/static/img/images1.jpg" width="150" height="100">
+            <br/>
+            <img src="app/static/img/images2.jpg" width="150" height="100">
+            <img src="app/static/img/images3.jpg" width="150" height="100">
+            <img src="app/static/img/images6.jpg" width="150" height="100">
+            <img src="app/static/img/index.jpg" width="150" height="100">
+        </div>
+        <br/>
+        <!-- InstanceEndEditable -->
+    </div>
+
+    <div id="footer">
+        <h3>Contact us</h3>
+
+        <p>Address : No.49,Colombo 1,SriLanka.</p>
+
+        <p>Telephone :0112704280</p>
+
+        <p>Mobile :0719865395</p>
+
+        <p>Email :<a href="mailto:xcodra@gmail.com">xcodra@gmail.com</a></p>
+    </div>
+
+
+
+{% endblock %}

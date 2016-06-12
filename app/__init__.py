@@ -18,9 +18,10 @@ from flask.ext.bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 # Import the views
-from app.views import main, user, error,room
+from app.views import main,user,error,room,gallery
 app.register_blueprint(user.userbp)
 app.register_blueprint(room.roombp)
+app.register_blueprint(gallery.gallerybp)
 # Setup the user login process
 from flask.ext.login import LoginManager
 from app.models import User
@@ -42,6 +43,10 @@ from flask.ext.admin.contrib.sqla import ModelView
 from flask.ext.login import LoginManager
 from flask.ext.admin.contrib.fileadmin import FileAdmin
 import os.path as op
+
+import os
+from flask import Flask, request, redirect, url_for
+from werkzeug.utils import secure_filename
 
 admin = Admin(app, name='Admin', template_mode='bootstrap3')
 

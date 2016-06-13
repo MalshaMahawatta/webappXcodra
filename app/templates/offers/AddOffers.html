@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<div class="ui form-user center raised very padded text container segment">
+		<form class="ui form" action="/offers/addOffers" method="post"enctype=multipart/form-data >
+			<h4 class="ui dividing header">Add new Offers</h4>
+	    	{{ m.render_field(form.title) }}
+	    	{{ m.render_field(form.description) }}
+
+		  	{{ form.csrf_token }}
+
+
+
+		  	<button class="ui primary button" type="submit">Submit</button>
+
+
+
+		</form>
+
+
+
+	</div>
+
+{% endblock %}

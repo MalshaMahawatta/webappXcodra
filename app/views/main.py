@@ -13,6 +13,11 @@ def index():
 def map():
     return render_template('map.html', title='Map')
 
+@app.route('/image')
+def image():
+    return render_template('image.html', title='image')
+
+
 
 @app.route('/map/refresh', methods=['POST'])
 def map_refresh():

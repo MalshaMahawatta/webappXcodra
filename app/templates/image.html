@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+		<form class="ui form" action="offers/image" method="post"enctype=multipart/form-data >
+			<h4 class="ui dividing header">Add new image</h4>
+	    	 <input type=file name=file>
+             <input type=submit value=Upload>
+        </form>
+
+
+
+
+
+{% endblock %}

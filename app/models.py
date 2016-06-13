@@ -35,10 +35,13 @@ class Room(db.Model, UserMixin):
 
     __tablename__ = 'rooms'
     number = db.Column(db.Integer,primary_key=True)
-    name = db.Column(db.String)
-    creditCard = db.Column(db.Boolean)
-    bookedBy=db.Column(db.String)
-    duration=db.Column(db.String)
+    type = db.Column(db.String)
+    availability = db.Column(db.Boolean)
+   # creditCard = db.Column(db.Boolean)
+    #bookedBy=db.Column(db.String)
+    #duration=db.Column(db.String)
+
+
 
     def get_id(self):
         return self.number
@@ -57,3 +60,16 @@ class Guest(db.Model, UserMixin):
 
     def get_id(self):
         return self.number
+
+
+class Offers(db.Model, UserMixin):
+
+    ''' offer details. '''
+
+    __tablename__ = 'offers'
+    title = db.Column(db.String,primary_key=True)
+    description = db.Column(db.String)
+
+
+    def get_id(self):
+        return self.title

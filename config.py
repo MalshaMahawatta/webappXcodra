@@ -3,7 +3,7 @@ DEBUG = True
 # Secret key for generating tokens
 SECRET_KEY = 'houdini'
 # Admin credentials
-ADMIN_CREDENTIALS = ('admin', 'pa$$word')
+ADMIN_CREDENTIALS = ('ddrwijethunge@gmail.com', 'malsha')
 # Database choice
 SQLALCHEMY_DATABASE_URI = 'sqlite:///app.db'
 SQLALCHEMY_TRACK_MODIFICATIONS = True
@@ -17,6 +17,7 @@ MAIL_PASSWORD = ''
 ADMINS = ['flask.boilerplate@gmail.com']
 # Number of times a password is hashed
 BCRYPT_LOG_ROUNDS = 12
+<<<<<<< HEAD
 
 from flask import send_from_directory
 
@@ -24,5 +25,8 @@ import os
 from flask import Flask, request, redirect, url_for
 from werkzeug.utils import secure_filename
 UPLOAD_FOLDER = 'D:/Xcodra/webappXcodra/app/static/img'
+=======
+UPLOAD_FOLDER = 'D:/WebAppXcodra/webappXcodra/app/static/img/'
+>>>>>>> 7b6519b4482be2cfbd49592a5420e9e41868763e
 ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
 

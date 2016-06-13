@@ -23,21 +23,26 @@ gallerybp = Blueprint('gallerybp', __name__, url_prefix='/gallery')
 
 @gallerybp.route('/addImage', methods=['GET', 'POST'])
 def upload_file():
-    # image = request.form['image']
+
     form = gallery_details.Gallery()
     if form.validate_on_submit():
 
         image = form.image.data
+        print image
+        imageNew=str(image)+".png"
+        print imageNew
+        #os.remove('//D:/WebAppXcodra/webappXcodra/app/static/img/imageNew')
         if request.method == 'POST':
             # check if the post request has the file part
             if 'file' not in request.files:
                 flash('No file part')
                 return redirect(request.url)
             file = request.files['file']
-            file.filename = image
             print file.filename
             # if user does not select file, browser also
             # submit a empty part without filename
+            file.filename=str(image)+".png"
+            print file.filename
             if file.filename == '':
                 flash('No selected file')
                 return redirect(request.url)

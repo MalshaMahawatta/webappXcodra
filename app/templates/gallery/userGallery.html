@@ -3,9 +3,11 @@
 {% block content %}
 
 
-    <div id="banner">
-        <img src="/app/static/img/3page-img13.jpg" width="790" height="290" id="Image1"
-             onMouseOver="MM_swapImage('Image1','','/app/static/img/banner_bg.jpg',1)" onMouseOut="MM_swapImgRestore()">
+    <div class="grey column" >
+
+        <img class="ui fluid image" src="{{ url_for('static', filename='img/download.jpg') }}"
+             id="Image1"
+        onMouseOver="MM_swapImage('Image1','','/img/banner_bg.jpg',1)" onMouseOut="MM_swapImgRestore()">
     </div>
 
     <div id="content">
@@ -14,18 +16,25 @@
         <h1>Photo gallery </h1>
 
 
-        <div id="gallery">
-            <img class="ui medium image error-image" src="{{ url_for('static', filename='img/error.png') }}">
-            <img src="D:/WebAppXcodra/webappXcodra/app/static/img/index1.jpg" width="150" height="100">
-            <img src="app/static/img/image_01.jpg" width="150" height="100">
-            <img src="/app/static/img/3page-img13.jpg" width="150" height="100">
-            <img src="app/static/img/images1.jpg" width="150" height="100">
-            <br/>
-            <img src="app/static/img/images2.jpg" width="150" height="100">
-            <img src="app/static/img/images3.jpg" width="150" height="100">
-            <img src="app/static/img/images6.jpg" width="150" height="100">
-            <img src="app/static/img/index.jpg" width="150" height="100">
+        <div id="gallery" class=" ui medium images">
+            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/1.jpg') }}">
+            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/2.jpg') }}">
+            <img class="ui medium rounded bordered image "
+                 src="{{ url_for('static', filename='img/3.jpg') }}">
+            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/4.jpg') }}">
+
         </div>
+        <br/>
+        <br/>
+
+        <div id="gallery" class=" ui medium images">
+            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/5.jpg') }}">
+            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/6.jpg') }}">
+            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/7.jpg') }}">
+            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/8.jpg') }}">
+
+        </div>
+        <br/>
         <br/>
         <!-- InstanceEndEditable -->
     </div>

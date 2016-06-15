@@ -26,20 +26,15 @@ from flask.ext.bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 # Import the views
-<<<<<<< HEAD
-from app.views import main, user, error,room, offers,image
-app.register_blueprint(user.userbp)
-app.register_blueprint(room.roombp)
-app.register_blueprint(offers.offersbp)
-app.register_blueprint(image.imagebp)
 
-
-=======
-from app.views import main,user,error,room,gallery
+from app.views import main,user,error,room,gallery,offers,image,guest
 app.register_blueprint(user.userbp)
 app.register_blueprint(room.roombp)
 app.register_blueprint(gallery.gallerybp)
->>>>>>> 7b6519b4482be2cfbd49592a5420e9e41868763e
+app.register_blueprint(offers.offersbp)
+app.register_blueprint(image.imagebp)
+app.register_blueprint(guest.guestbp)
+
 # Setup the user login process
 from flask.ext.login import LoginManager
 from app.models import User

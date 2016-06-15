@@ -38,6 +38,8 @@ def addRoom():
 @roombp.route('/showRooms', methods=['GET', 'POST'])
 @login_required
 def showRooms():
+
+    rooms = models.Room.query.all()
     class ItemTable(Table):
         classes = ['ui celled table']
         number = Col('number')
@@ -47,7 +49,6 @@ def showRooms():
         availability = Col('availability ')
         guest_number = Col('guest_number ')
 
-    rooms = models.Room.query.all()
     table = ItemTable(rooms)
     print(table.__html__())
     return render_template('room/showDetails.html', title='Room', rooms=table)

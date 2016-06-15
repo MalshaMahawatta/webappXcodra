@@ -8,6 +8,11 @@ import random
 def index():
     return render_template('index.html', title='Home')
 
+@app.route('/addImage')
+def addImage():
+    return render_template('addImage.html', title='Add image')
+
+
 
 @app.route('/map')
 def map():

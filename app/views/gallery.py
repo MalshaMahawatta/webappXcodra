@@ -9,8 +9,9 @@ from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
 from app.forms import gallery as gallery_details
 
-UPLOAD_FOLDER = '/D:/WebAppXcodra/webappXcodra/app/static/img/'
+UPLOAD_FOLDER = 'G:/project 1/webappXcodra/app/static/img'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+
 
 
 def allowed_file(filename):
@@ -31,7 +32,7 @@ def upload_file():
         print image
         imageNew=str(image)+".png"
         print imageNew
-        #os.remove('//D:/WebAppXcodra/webappXcodra/app/static/img/imageNew')
+
         if request.method == 'POST':
             # check if the post request has the file part
             if 'file' not in request.files:

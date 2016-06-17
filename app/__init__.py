@@ -1,4 +1,13 @@
 from flask import Flask
+
+
+from flask import send_from_directory
+
+
+
+UPLOAD_FOLDER = 'D:/WebAppXcodra/webappXcodra/app/static/img/'
+ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
+
 app = Flask(__name__)
 from flask import send_from_directory
 
@@ -29,7 +38,9 @@ app.register_blueprint(guest.guestbp)
 app.register_blueprint(facility.facilitybp)
 app.register_blueprint(imageFacility.imageFacilitybp)
 
+
 from app.toolbox import RecognizedCustomer
+
 
 # Setup the user login process
 from flask.ext.login import LoginManager

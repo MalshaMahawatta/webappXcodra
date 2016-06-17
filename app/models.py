@@ -45,6 +45,8 @@ class Room(db.Model, UserMixin):
     guests = db.relationship('Guest', backref=db.backref('rooms', lazy='dynamic'),uselist=True)
 
 
+
+
     def get_id(self):
         return self.number
 
@@ -67,8 +69,6 @@ class Guest(db.Model, UserMixin):
     def get_id(self):
         return self.number
 
-
-
 class Offers(db.Model, UserMixin):
     ''' offer details. '''
 
@@ -78,7 +78,6 @@ class Offers(db.Model, UserMixin):
 
     def get_id(self):
         return self.title
-
 
 class Facility(db.Model, UserMixin):
 
@@ -93,5 +92,6 @@ class Facility(db.Model, UserMixin):
    # duration=db.Column(db.String)
 
     def get_id(self):
+
         return self.number
 

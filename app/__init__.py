@@ -38,6 +38,11 @@ app.register_blueprint(image.imagebp)
 app.register_blueprint(guest.guestbp)
 app.register_blueprint(facility.facilitybp)
 app.register_blueprint(imageFacility.imageFacilitybp)
+
+
+from app.toolbox import RecognizedCustomer
+
+
 # Setup the user login process
 from flask.ext.login import LoginManager
 from app.models import User

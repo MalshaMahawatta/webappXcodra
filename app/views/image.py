@@ -7,7 +7,7 @@ from flask import (Blueprint, render_template, redirect, url_for,
 from flask.ext.login import login_user, logout_user, login_required
 from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
-UPLOAD_FOLDER =  '/G:/project 1/webappXcodra/app/static/img/'
+UPLOAD_FOLDER =  'D:/WebAppXcodra/webappXcodra/app/static/img/'
 ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
 
 

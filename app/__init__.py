@@ -4,7 +4,7 @@ from flask import send_from_directory
 
 
 
-UPLOAD_FOLDER = 'G:/project 1/webappXcodra/app/static/img'
+UPLOAD_FOLDER = 'D:/WebAppXcodra/webappXcodra/app/static/img/'
 ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
 
 
@@ -27,27 +27,17 @@ bcrypt = Bcrypt(app)
 
 # Import the views
 
-<<<<<<< HEAD
-from app.views import main,user,error,room,gallery,offers,image,guest
-=======
-from app.views import main, user, error,room, offers,image,gallery,facility,imageFacility
->>>>>>> cc92c7ea54c726c2ea9308cb00dd3a3ab343a908
+
+from app.views import main, user, error,room, offers,image,gallery,facility,imageFacility,guest
+
 app.register_blueprint(user.userbp)
 app.register_blueprint(room.roombp)
 app.register_blueprint(gallery.gallerybp)
 app.register_blueprint(offers.offersbp)
 app.register_blueprint(image.imagebp)
-<<<<<<< HEAD
 app.register_blueprint(guest.guestbp)
-
-=======
-app.register_blueprint(gallery.gallerybp)
 app.register_blueprint(facility.facilitybp)
 app.register_blueprint(imageFacility.imageFacilitybp)
-
-
-
->>>>>>> cc92c7ea54c726c2ea9308cb00dd3a3ab343a908
 # Setup the user login process
 from flask.ext.login import LoginManager
 from app.models import User

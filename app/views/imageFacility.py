@@ -8,8 +8,9 @@ from flask.ext.login import login_user, logout_user, login_required
 from itsdangerous import URLSafeTimedSerializer
 
 from app import app, models, db
-UPLOAD_FOLDER = 'C:/Users/User1/Desktop/project copy/project copy/project/webappXcodra/app/static/img'
-ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
+
+UPLOAD_FOLDER = 'C:/Users/User1/Desktop/project copy/project copy/project/webappXcodra/app/static/img/facilities'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 
 def allowed_file(filename):
@@ -22,7 +23,7 @@ imageFacilitybp = Blueprint('imageFacilitybp', __name__, url_prefix='/imageFacil
 
 @imageFacilitybp.route('/addImage', methods=['GET', 'POST'])
 def upload_file():
-     if request.method == 'POST':
+    if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
             flash('No file part')
@@ -41,4 +42,4 @@ def upload_file():
 
         flash('added images sucessfully.', 'positive')
         return redirect(url_for('index'))
-     return render_template('addImage.html', title='Upload Images')
+    return render_template('addImage.html', title='Upload Images')

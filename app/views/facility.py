@@ -18,13 +18,14 @@ facilitybp = Blueprint('facilitybp', __name__, url_prefix='/facility')
 def addFacility():
     form = facility_details.Facilities()
     if form.validate_on_submit():
-
         facility = models.Facility(
             facility=form.facility.data,
             description=form.description.data,
 
-
         )
+        row = models.Facility.query.filter_by(facility=form.facility.data).first()
+        db.session.delete(row)
+        db.session.commit()
         # Insert the facility in the database
         db.session.add(facility)
         db.session.commit()
@@ -34,15 +35,8 @@ def addFacility():
     return render_template('facility/details.html', form=form, title='facility Details')
 
 
-
-@facilitybp.route('/showFacilities',methods=['GET', 'POST'])
+@facilitybp.route('/showFacilities', methods=['GET', 'POST'])
 @login_required
 def showFacilities():
-    facilities=models.Facility.query.all()
-    return render_template('facility/showDetails.html', title='Facility',facilities=facilities)
-
-
-
-
-
-
+    facilities = models.Facility.query.all()
+    return render_template('facility/showDetails.html', title='Facility', facilities=facilities)

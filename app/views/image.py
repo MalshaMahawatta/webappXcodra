@@ -8,7 +8,9 @@ from flask.ext.login import login_user, logout_user, login_required
 from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
 
+
 UPLOAD_FOLDER =   '/D:/Xcodra/webappXcodra/app/static/img/offers'
+
 ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
 
 

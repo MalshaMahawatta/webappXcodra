@@ -6,6 +6,14 @@
 
 {% block content %}
 
+
+      <div class="grey column">
+
+        <img class="ui fluid image" src="{{ url_for('static', filename='img/download.jpg') }}"
+             id="Image1"
+             onMouseOver="MM_swapImage('Image1','','/img/banner_bg.jpg',1)" onMouseOut="MM_swapImgRestore()">
+    </div>
+
 	<h1 class="ui header">{{ title }}</h1>
 
 	{% if current_user.is_authenticated %}

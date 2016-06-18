@@ -34,16 +34,17 @@ class Room(db.Model, UserMixin):
     ''' room details. '''
 
     __tablename__ = 'rooms'
-<<<<<<< HEAD
-    number = db.Column(db.Integer,primary_key=True)
-    type = db.Column(db.String)
-    availability = db.Column(db.Boolean)
+
+   # number = db.Column(db.Integer,primary_key=True)
+   # type = db.Column(db.String)
+   # availability = db.Column(db.Boolean)
+
    # creditCard = db.Column(db.Boolean)
     #bookedBy=db.Column(db.String)
     #duration=db.Column(db.String)
 
 
-=======
+
     number = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String)
     #creditCard = db.Column(db.Boolean)
@@ -52,7 +53,7 @@ class Room(db.Model, UserMixin):
     availability = db.Column(db.Boolean)
     guest_number = db.Column(db.Integer, db.ForeignKey('guests.number'))
     guests = relationship("Guest", uselist=False, back_populates="rooms")
->>>>>>> 7b6519b4482be2cfbd49592a5420e9e41868763e
+
 
     def get_id(self):
         return self.number
@@ -73,7 +74,7 @@ class Guest(db.Model, UserMixin):
 
     def get_id(self):
         return self.number
-<<<<<<< HEAD
+
 
 
 class Offers(db.Model, UserMixin):
@@ -87,5 +88,4 @@ class Offers(db.Model, UserMixin):
 
     def get_id(self):
         return self.title
-=======
->>>>>>> 7b6519b4482be2cfbd49592a5420e9e41868763e
+

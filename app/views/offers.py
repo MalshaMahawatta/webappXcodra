@@ -1,5 +1,7 @@
 __author__ = 'Dilini'
 
+import os
+
 from flask import (Blueprint, render_template, redirect, url_for,
                    abort, flash)
 from flask.ext.login import login_user, logout_user, login_required
@@ -26,12 +28,16 @@ def addOffers():
 
         )
         # Insert the offer in the database
+
         db.session.add(offers)
         db.session.commit()
 
         flash('added offer details sucessfully.', 'positive')
         return redirect(url_for('image'))
     return render_template('offers/addOffers.html', form=form, title='Offers Details')
+
+
+
 
 
 @offersbp.route('/viewOffers',methods=['GET', 'POST'])

@@ -7,7 +7,8 @@ from flask import (Blueprint, render_template, redirect, url_for,
 from flask.ext.login import login_user, logout_user, login_required
 from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
-UPLOAD_FOLDER = 'D:/Xcodra/webappXcodra/app/static/img'
+
+UPLOAD_FOLDER =   '/D:/Xcodra/webappXcodra/app/static/img/offers'
 ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
 
 
@@ -22,6 +23,9 @@ imagebp = Blueprint('imagebp', __name__, url_prefix='/offers')
 
 @imagebp.route('/image', methods=['GET', 'POST'])
 def upload_file():
+
+
+
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -30,6 +34,8 @@ def upload_file():
         file = request.files['file']
         # if user does not select file, browser also
         # submit a empty part without filename
+
+
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)

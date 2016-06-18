@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="ui form-user center raised very padded text container segment">
+
+        {% if current_user.is_authenticated %}
+            <div class="grey column">
+
+        <img class="ui fluid image" src="{{ url_for('static', filename='img/download.jpg') }}"
+             id="Image1"
+             onMouseOver="MM_swapImage('Image1','','/img/banner_bg.jpg',1)" onMouseOut="MM_swapImgRestore()">
+    </div>
+
+            <h2 class="ui header">Guest Details</h2>
+
+
+
+
+            {{ guests }}
+            <input type = "submit" value = "CheckOut" />
+        {% endif %}
+    </div>
+
+{% endblock %}

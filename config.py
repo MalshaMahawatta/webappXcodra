@@ -18,12 +18,13 @@ ADMINS = ['flask.boilerplate@gmail.com']
 # Number of times a password is hashed
 BCRYPT_LOG_ROUNDS = 12
 
-
 from flask import send_from_directory
 
 import os
 from flask import Flask, request, redirect, url_for
 from werkzeug.utils import secure_filename
+
 UPLOAD_FOLDER = 'G:/project 1/webappXcodra/app/static/img/facilities'
+
 ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
 

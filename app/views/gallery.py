@@ -9,7 +9,7 @@ from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
 from app.forms import gallery as gallery_details
 
-UPLOAD_FOLDER = 'G:/project 1/webappXcodra/app/static/img'
+UPLOAD_FOLDER = 'D:/WebAppXcodra/webappXcodra/app/static/img/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 
@@ -28,7 +28,9 @@ def upload_file():
 
         image = form.image.data
         print image
+
         imageNew = str(image) + ".png"
+
         print imageNew
 
         if request.method == 'POST':
@@ -40,7 +42,9 @@ def upload_file():
             print file.filename
             # if user does not select file, browser also
             # submit a empty part without filename
+
             file.filename = str(image) + ".png"
+
             print file.filename
             if file.filename == '':
                 flash('No selected file')

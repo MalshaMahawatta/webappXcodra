@@ -9,7 +9,7 @@ from itsdangerous import URLSafeTimedSerializer
 
 from app import app, models, db
 
-UPLOAD_FOLDER = 'C:/Users/User1/Desktop/project copy/project copy/project/webappXcodra/app/static/img/facilities'
+UPLOAD_FOLDER = 'G:/project 1/webappXcodra/app/static/img/facilities'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 

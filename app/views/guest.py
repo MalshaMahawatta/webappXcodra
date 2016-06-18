@@ -19,6 +19,12 @@ guestbp = Blueprint('guestbp', __name__, url_prefix='/guest')
 @login_required
 def addGuest():
     form = guest_details.Guest()
+    availableRooms=[]
+    availableRoomsObj= models.Room.query.filter_by(availability=True).all()
+    if availableRoomsObj:
+        for x in availableRoomsObj:
+            availableRooms=[x.number]
+    #form.room_number1.choices=[(key, availableRooms[key]) for key in availableRooms]
     if form.validate_on_submit():
         guest = models.Guest(
             number=form.number.data,
@@ -39,5 +45,5 @@ def addGuest():
 
         flash('added guest details sucessfully.', 'positive')
         return redirect(url_for('index'))
-    return render_template('guest/details.html', form=form, title='Guest Details')
+    return render_template('guest/details.html', form=form, title='Guest Details',availableRooms='availableRooms')
 

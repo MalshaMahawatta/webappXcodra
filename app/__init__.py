@@ -41,7 +41,6 @@ app.register_blueprint(imageFacility.imageFacilitybp)
 
 from app.toolbox import RecognizedCustomer
 
-
 # Setup the user login process
 from flask.ext.login import LoginManager
 from app.models import User

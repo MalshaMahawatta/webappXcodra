@@ -1,3 +1,4 @@
+
 __author__ = 'Raditha'
 from flask import (Blueprint, render_template, redirect, url_for,
                    abort, flash)
@@ -14,19 +15,51 @@ ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 # Create a user blueprint
 roombp = Blueprint('roombp', __name__, url_prefix='/room')
 
-
 @roombp.route('/addRoom', methods=['GET', 'POST'])
 @login_required
 def addRoom():
     form = room_details.Rooms()
     if form.validate_on_submit():
-        room = models.Room(
+        type=form.type.data
+        print(type)
+        if int(type) is 1:
+
+            room = models.Room(
+
+
             number=form.number.data,
-            type=form.type.data,
+            type="superior",
+            roomPrice=75000,
             availability=True,
 
+
+
         )
-        # Insert the room in the database
+        elif int(type)==2:
+            room = models.Room(
+
+
+            number=form.number.data,
+            type="Delux",
+            roomPrice=50000,
+            availability=True,
+
+
+
+             )
+
+        else:
+            room = models.Room(
+
+
+            number=form.number.data,
+            type="Standard",
+            roomPrice=25000,
+            availability=True,
+
+
+             )
+                # Insert the room in the database
         db.session.add(room)
         db.session.commit()
 
@@ -44,11 +77,10 @@ def showRooms():
         classes = ['ui celled table']
         number = Col('number')
         type = Col('type')
-        bookedBy = Col('bookedBy')
-        duration = Col('duration ')
+        checkedInTime = Col('checkedInTime ')
         availability = Col('availability ')
         guest_number = Col('guest_number ')
 
     table = ItemTable(rooms)
-    print(table.__html__())
+    #print(table.__html__())
     return render_template('room/showDetails.html', title='Room', rooms=table)

@@ -1,12 +1,17 @@
+
 {% extends "layout.html" %}
 
 {% block content %}
 
 	<div class="ui form-user center raised very padded text container segment">
-		<form class="ui form" action="/room/addRoom" method="post">
+		<form name= "room" class="ui form" action="{{ url_for('roombp.addRoom') }}" method="post" enctype=multipart/form-data>
 			<h4 class="ui dividing header">Add Room Details</h4>
+
 	    	{{ m.render_field(form.number) }}
+             <fieldset>
+                <legend>Selecting the Room Type</legend>
 	    	{{ m.render_field(form.type) }}
+                 </fieldset>
 		  	{{ form.csrf_token }}
 		  	<button class="ui primary button" type="submit">Submit</button>
 		</form>

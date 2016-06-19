@@ -6,10 +6,10 @@ from flask import send_from_directory
 
 
 
+
 UPLOAD_FOLDER = 'G:/project 1/webappXcodra/app/static/img/facilities'
 
 ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
-
 app = Flask(__name__)
 from flask import send_from_directory
 
@@ -81,8 +81,6 @@ class ModelView(ModelView):
             ))
         return True
 
-UPLOAD_FOLDER = 'G:/project 1/webappXcodra/app/static/img'
-ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
 
 # Users
 admin.add_view(ModelView(User, db.session))

@@ -9,8 +9,10 @@ from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
 from app.forms import gallery as gallery_details
 
-UPLOAD_FOLDER = 'D:/WebAppXcodra/webappXcodra/app/static/img/'
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+UPLOAD_FOLDER_GALLERY = 'D:/WebAppXcodra/webappXcodra/app/static/img/gallery/'
+UPLOAD_FOLDER_OFFERS = 'D:/WebAppXcodra/webappXcodra/app/static/img/offers/'
+
+ALLOWED_EXTENSIONS = set(['jpeg','png','jpg'])
 
 
 def allowed_file(filename):
@@ -51,7 +53,7 @@ def upload_file():
                 return redirect(request.url)
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                file.save(os.path.join(app.config['UPLOAD_FOLDER_GALLERY'], filename))
                 return redirect(url_for('gallerybp.upload_file',
                                         filename=filename))
 

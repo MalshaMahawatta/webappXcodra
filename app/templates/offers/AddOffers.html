@@ -4,7 +4,16 @@
 
 	<div class="ui form-user center raised very padded text container segment">
 		<form class="ui form" action="/offers/addOffers" method="post"enctype=multipart/form-data >
+
+    <div class="grey column">
+
+        <img class="ui fluid image" src="{{ url_for('static', filename='img/download.jpg') }}"
+             id="Image1"
+             onMouseOver="MM_swapImage('Image1','','/img/banner_bg.jpg',1)" onMouseOut="MM_swapImgRestore()">
+    </div>
+
 			<h4 class="ui dividing header">Add new Offers</h4>
+
 	    	{{ m.render_field(form.title) }}
 	    	{{ m.render_field(form.description) }}
 
@@ -17,6 +26,7 @@
 
 
 		</form>
+
 
 
 

@@ -6,6 +6,7 @@ from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
 from app.forms import guest as guest_details
 from flask_table import Table, Col
+from datetime import datetime
 
 
 # Serializer for generating random tokens
@@ -20,6 +21,9 @@ guestbp = Blueprint('guestbp', __name__, url_prefix='/guest')
 def addGuest():
     form = guest_details.Guest()
     if form.validate_on_submit():
+
+        checkedInTime=datetime.now().date()
+        print checkedInTime
         guest = models.Guest(
             number=form.number.data,
             name=form.name.data,
@@ -27,7 +31,10 @@ def addGuest():
             phone=form.phone.data,
             email=form.email.data,
             type=form.type.data,
+            checkedInTime=checkedInTime
         )
+
+
         # Insert the guest in the database
         db.session.add(guest)
         db.session.commit()

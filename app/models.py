@@ -37,18 +37,11 @@ class Room(db.Model, UserMixin):
 
     number = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String)
-    bookedBy = db.Column(db.String)
-    duration = db.Column(db.String)
     availability = db.Column(db.Boolean)
+    roomPrice = db.Column(db.Float)
     guest_number = db.Column(db.Integer, db.ForeignKey('guests.number'))
+    guests = db.relationship('Guest', backref=db.backref('rooms', lazy='dynamic'), uselist=True)
 
-    guests = db.relationship('Guest', backref=db.backref('rooms', lazy='dynamic'),uselist=True)
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> d1414de794f611ff8ebfaff9c124540f1387b624
 
     def get_id(self):
         return self.number
@@ -64,7 +57,7 @@ class Guest(db.Model, UserMixin):
     phone = db.Column(db.String)
     email = db.Column(db.String)
     type = db.Column(db.String)
-
+    checkedInTime = db.Column(db.String)
 
     def get_id(self):
         return self.number
@@ -83,18 +76,13 @@ class Offers(db.Model, UserMixin):
     def get_id(self):
         return self.title
 
-class Facility(db.Model, UserMixin):
 
+class Facility(db.Model, UserMixin):
     """ room details. """
 
     __tablename__ = 'facilities'
-    facility = db.Column(db.String,primary_key=True)
+    facility = db.Column(db.String, primary_key=True)
     description = db.Column(db.String)
-    #availability = db.Column(db.Boolean)
-    #creditCard = db.Column(db.Boolean)
-   # bookedBy=db.Column(db.String)
-   # duration=db.Column(db.String)
 
     def get_id(self):
         return self.number
-

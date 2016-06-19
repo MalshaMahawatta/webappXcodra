@@ -1,15 +1,94 @@
 {% extends "layout.html" %}
 
 {% block content %}
-	<div class="ui form-user center raised very padded text container segment">
 
-		{% if current_user.is_authenticated %}
-	  	<h2 class="ui header">Offer Details</h2>
-            {{ offers[0].title }}<br>
-            {{ offers[0].description }}<br>
-             {{ offers[1].title }}<br>
-             {{ offers[1].description }}
-	{% endif %}
-	</div>
+
+    <div class="grey column">
+
+        <img class="ui fluid image" src="{{ url_for('static', filename='img/download.jpg') }}"
+             id="Image1"
+            >
+    </div>
+
+
+    <div id="content">
+        <!-- InstanceBeginEditable name="EditRegion3" -->
+
+        <h1>Offers</h1>
+        <div class="ui inverted segment">
+
+        <div class="ui segment">
+
+            <div id="offers" class="ui medium images">
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/offers/1.jpg') }}">
+            </div>
+            <p> <b>{{ offers[0].title }}</b>
+                    <br><br>
+                    {{ offers[0].description }}</p>
+            <br><br><br>&nbsp;&nbsp;&nbsp;&nbsp<button class="ui inverted red button">Book Now</button><button class="ui inverted red button">Find Out More</button>
+
+        </div>
+
+         <div class="ui segment">
+
+            <div id="offers" class=" ui medium images">
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/offers/2.jpg') }}">
+            </div>
+            <p> <b>{{ offers[1].title }}</b>
+                    <br><br>
+                    {{ offers[1].description }}</p>
+             <br><br><br><button class="ui inverted red button">Book Now</button><button class="ui inverted red button">Find Out More</button>
+        </div>
+
+
+         <div class="ui segment">
+
+            <div id="offers" class=" ui medium images">
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/offers/3.jpg') }}">
+            </div>
+            <p> <b>{{ offers[2].title }}</b>
+                    <br><br>
+                    {{ offers[2].description }}</p>
+             <br><br><br><button class="ui inverted red button">Book Now</button><button class="ui inverted red button">Find Out More</button>
+        </div>
+
+
+         <div class="ui segment">
+
+            <div id="offers" class=" ui medium images">
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/offers/4.jpg') }}">
+            </div>
+            <p> <b>{{ offers[3].title }}</b>
+                    <br><br>
+                    {{ offers[3].description }}</p>
+             <br><br><br><button class="ui inverted red button">Book Now</button><button class="ui inverted red button">Find Out More</button>
+        </div>
+
+
+
+
+</div>
+
+        <!-- InstanceEndEditable -->
+
+
+
+    <div id="footer">
+        <h3>Contact us</h3>
+
+        <p>Address : No.49,Colombo 1,SriLanka.</p>
+
+        <p>Telephone :0112704280</p>
+
+        <p>Mobile :0719865395</p>
+
+        <p>Email :<a href="mailto:xcodra@gmail.com">xcodra@gmail.com</a></p>
+    </div>
+
+</div>
 
 {% endblock %}

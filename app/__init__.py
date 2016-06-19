@@ -3,11 +3,6 @@ from flask import Flask
 
 from flask import send_from_directory
 
-
-
-UPLOAD_FOLDER = 'D:/WebAppXcodra/webappXcodra/app/static/img/'
-ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
-
 app = Flask(__name__)
 from flask import send_from_directory
 
@@ -79,8 +74,11 @@ class ModelView(ModelView):
             ))
         return True
 
-UPLOAD_FOLDER = 'G:/project 1/webappXcodra/app/static/img'
-ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
+UPLOAD_FOLDER_GALLERY = 'D:/WebAppXcodra/webappXcodra/app/static/img/gallery/'
+UPLOAD_FOLDER_OFFERS = 'D:/WebAppXcodra/webappXcodra/app/static/img/offers/'
+
+ALLOWED_EXTENSIONS = set(['jpeg','png','jpg'])
+
 
 # Users
 admin.add_view(ModelView(User, db.session))

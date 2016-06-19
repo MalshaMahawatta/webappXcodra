@@ -7,7 +7,7 @@ from flask import (Blueprint, render_template, redirect, url_for,
 from flask.ext.login import login_user, logout_user, login_required
 from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
-UPLOAD_FOLDER =  'D:/WebAppXcodra/webappXcodra/app/static/img/'
+UPLOAD_FOLDER_OFFERS =  'D:/WebAppXcodra/webappXcodra/app/static/img/offers/'
 ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
 
 
@@ -35,7 +35,7 @@ def upload_file():
             return redirect(request.url)
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file.save(os.path.join(app.config['UPLOAD_FOLDER_OFFERS'], filename))
             return redirect(url_for('imagebp.upload_file',
                                     filename=filename))
 

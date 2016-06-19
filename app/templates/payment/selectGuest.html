@@ -3,12 +3,12 @@
 {% block content %}
 
 	<div class="ui form-user center raised very padded text container segment">
-		<form class="ui form" action="/room/addRoom" method="post">
-			<h4 class="ui dividing header">Add Room Details</h4>
+		<form class="ui form" action="{{ url_for('viewGuestbp.select') }}" method="post">
+			<h4 class="ui dividing header">Select guest</h4>
 	    	{{ m.render_field(form.number) }}
-	    	{{ m.render_field(form.type) }}
+
 		  	{{ form.csrf_token }}
-		  	<button class="ui primary button" type="submit">Submit</button>
+		  	<button class="ui primary button" type="submit">View guest</button>
 		</form>
 	</div>
 

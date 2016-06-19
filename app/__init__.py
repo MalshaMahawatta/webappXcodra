@@ -29,7 +29,7 @@ from flask.ext.bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 # Import the views
-from app.views import main, user, error,room,offers,image,gallery,facility,imageFacility,guest
+from app.views import main, user, error,room,offers,image,gallery,guest,viewGuest
 
 app.register_blueprint(user.userbp)
 app.register_blueprint(room.roombp)
@@ -37,8 +37,8 @@ app.register_blueprint(gallery.gallerybp)
 app.register_blueprint(offers.offersbp)
 app.register_blueprint(image.imagebp)
 app.register_blueprint(guest.guestbp)
-app.register_blueprint(facility.facilitybp)
-app.register_blueprint(imageFacility.imageFacilitybp)
+app.register_blueprint(viewGuest.viewGuestbp)
+
 
 
 from app.toolbox import RecognizedCustomer

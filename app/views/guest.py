@@ -21,10 +21,18 @@ def addGuest():
     form = guest_details.Guest()
     availableRooms=[]
     availableRoomsObj= models.Room.query.filter_by(availability=True).all()
-    if availableRoomsObj:
-        for x in availableRoomsObj:
-            availableRooms=[x.number]
-    #form.room_number1.choices=[(key, availableRooms[key]) for key in availableRooms]
+    for u in availableRoomsObj:
+        aRoomDetails=str(u.number) + '-' + str(u.type)
+        availableRooms.append(aRoomDetails)
+    print availableRooms
+    k=1
+    a=[]
+    for i in availableRooms:
+        a.append((str(k),str(i)))
+        k=k+1
+
+    form.room_number.choices=a
+    #form.room_number1.choices[availableRooms]=[(key, availableRooms[key]) for key in availableRooms]
     if form.validate_on_submit():
         guest = models.Guest(
             number=form.number.data,
@@ -32,7 +40,6 @@ def addGuest():
             surname=form.surname.data,
             phone=form.phone.data,
             email=form.email.data,
-            type=form.type.data,
         )
         # Insert the guest in the database
         db.session.add(guest)

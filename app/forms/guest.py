@@ -48,7 +48,7 @@ class Guest(Form):
     # type = StringField(validators=[Required(), Length(min=2)],
     #                description='Room Type')
 
-    room_number = IntegerField(validators=[Required()],
-                   description='Room Number')
-    room_number1 = SelectField(validators=[Required()],
+    #room_number = IntegerField(validators=[Required()],
+                   #description='Room Number')
+    room_number = SelectField(validators=[Required()],
                    description='Room Number filtered')

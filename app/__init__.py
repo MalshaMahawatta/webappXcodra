@@ -74,11 +74,11 @@ class ModelView(ModelView):
             ))
         return True
 
+
 UPLOAD_FOLDER_GALLERY = 'D:/WebAppXcodra/webappXcodra/app/static/img/gallery/'
 UPLOAD_FOLDER_OFFERS = 'D:/WebAppXcodra/webappXcodra/app/static/img/offers/'
 
 ALLOWED_EXTENSIONS = set(['jpeg','png','jpg'])
-
 
 # Users
 admin.add_view(ModelView(User, db.session))

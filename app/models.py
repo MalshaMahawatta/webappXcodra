@@ -40,8 +40,7 @@ class Room(db.Model, UserMixin):
     availability = db.Column(db.Boolean)
     roomPrice = db.Column(db.Float)
     guest_number = db.Column(db.Integer, db.ForeignKey('guests.number'))
-    guests = db.relationship('Guest', backref=db.backref('rooms', lazy='dynamic'), uselist=True)
-
+    guests = db.relationship('Guest', backref=db.backref('rooms', lazy='dynamic'),uselist=True)
 
     def get_id(self):
         return self.number

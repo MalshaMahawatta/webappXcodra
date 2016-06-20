@@ -1,4 +1,3 @@
-
 __author__ = 'Raditha'
 from flask import (Blueprint, render_template, redirect, url_for,
                    abort, flash)
@@ -77,7 +76,6 @@ def showRooms():
         classes = ['ui celled table']
         number = Col('number')
         type = Col('type')
-        checkedInTime = Col('checkedInTime ')
         availability = Col('availability ')
         guest_number = Col('guest_number ')
 

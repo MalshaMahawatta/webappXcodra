@@ -44,7 +44,6 @@ def addGuest():
             surname=form.surname.data,
             phone=form.phone.data,
             email=form.email.data,
-            type=form.type.data,
             checkedInTime=checkedInTime
         )
 

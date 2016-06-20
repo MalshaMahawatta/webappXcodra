@@ -28,14 +28,15 @@ class Unique(object):
             raise ValidationError(self.message)
 
 
-class Facilities(Form):
+class SelectGuest(Form):
 
     ''' add room details form. '''
 
-    facility = StringField(validators=[Required()],
-                     description='facility name')
-    description = StringField(validators=[Required(), Length(min=2)],
-                        description='facility description')
+    number = IntegerField(validators=[Required()],
+                     description='Room Number')
+
+
+
 
 
 

@@ -14,7 +14,6 @@ ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 # Create a user blueprint
 roombp = Blueprint('roombp', __name__, url_prefix='/room')
 
-
 @roombp.route('/addRoom', methods=['GET', 'POST'])
 @login_required
 def addRoom():

@@ -19,6 +19,22 @@ ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 # Create a user blueprint
 viewGuestbp = Blueprint('viewGuestbp', __name__, url_prefix='/viewGuest')
 
+@viewGuestbp.route('/select', methods=['GET', 'POST'])
+@login_required
+def select():
+    # form=select_guest.SelectGuest()
+    # number=form.number.data
+    # print number
+    form = select_guest.SelectGuest()
+    if form.validate_on_submit():
+        number = form.number.data
+        global n
+        n = number
+        print number
+
+
+        return redirect("http://127.0.0.1:5000/viewGuest/view")
+    return render_template('payment/selectGuest.html', title='Payment', form=form)
 
 @viewGuestbp.route('/view', methods=['GET', 'POST'])
 @login_required
@@ -26,7 +42,7 @@ def view():
     gnumber = models.Room.query.filter_by(number=n).first()
     b = gnumber.guest_number
 
-    # print b
+    print b
 
     gnumber.availability=True
 
@@ -40,24 +56,6 @@ def view():
         # if form.validate_on_submit():
         return redirect("http://127.0.0.1:5000/viewGuest/calculatePayment")
     return render_template('payment/showDetails.html', title='Payment', payments=payments)
-
-
-@viewGuestbp.route('/select', methods=['GET', 'POST'])
-@login_required
-def select():
-    # form=select_guest.SelectGuest()
-    # number=form.number.data
-    # print number
-    form = select_guest.SelectGuest()
-    if form.validate_on_submit():
-        number = form.number.data
-        global n
-        n = number
-        # print number
-
-
-        return redirect("http://127.0.0.1:5000/viewGuest/view")
-    return render_template('payment/selectGuest.html', title='Payment', form=form)
 
 
 @viewGuestbp.route('/calculatePayment', methods=['GET', 'POST'])

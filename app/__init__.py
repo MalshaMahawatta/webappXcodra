@@ -7,9 +7,11 @@ from flask import send_from_directory
 
 
 
-UPLOAD_FOLDER = 'G:/project 1/webappXcodra/app/static/img/facilities'
 
-ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
+UPLOAD_FOLDER_GALLERY = 'D:/WebAppXcodra/webappXcodra/app/static/img/gallery/'
+UPLOAD_FOLDER_OFFERS = 'D:/WebAppXcodra/webappXcodra/app/static/img/offers/'
+
+ALLOWED_EXTENSIONS = set(['jpeg','png','jpg'])
 app = Flask(__name__)
 from flask import send_from_directory
 

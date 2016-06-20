@@ -73,7 +73,7 @@ def showRooms():
 
     rooms = models.Room.query.all()
     class ItemTable(Table):
-        classes = ['ui celled table']
+        classes = ['ui celled inverted table']
         number = Col('number')
         type = Col('type')
         availability = Col('availability ')

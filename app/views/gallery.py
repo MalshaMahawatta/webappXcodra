@@ -24,6 +24,7 @@ gallerybp = Blueprint('gallerybp', __name__, url_prefix='/gallery')
 
 
 @gallerybp.route('/addImage', methods=['GET', 'POST'])
+@login_required
 def upload_file():
     form = gallery_details.Gallery()
     if form.validate_on_submit():
@@ -31,7 +32,7 @@ def upload_file():
         image = form.image.data
         print image
 
-        imageNew = str(image) + ".png"
+        imageNew = str(image) + ".jpeg"
 
         print imageNew
 
@@ -45,7 +46,7 @@ def upload_file():
             # if user does not select file, browser also
             # submit a empty part without filename
 
-            file.filename = str(image) + ".png"
+            file.filename = str(image) + ".jpeg"
 
             print file.filename
             if file.filename == '':
@@ -63,6 +64,6 @@ def upload_file():
 
 
 @gallerybp.route('/showGallery', methods=['GET', 'POST'])
-@login_required
+
 def showGallery():
     return render_template('gallery/userGallery.html', title='Gallery')

@@ -4,11 +4,75 @@
 
 {% block content %}
 
-	<h1 class="ui header">{{ title }}</h1>
+    <div class="ui vertical inverted menu">
+        <div class="item">
+            <div class="header">Gallery</div>
+            <div class="menu">
+                <a class="item" href="{{ url_for('gallerybp.showGallery') }}">Image Gallery</a>
+                <a class="item" href="{{ url_for('gallerybp.upload_file') }}">Add Images</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="header">Facilities</div>
+            <div class="menu">
+                <a class="item">User Facilities</a>
+                <a class="item">Add Facilities</a>
 
-	{% if current_user.is_authenticated %}
-	  	<h2 class="ui header">Hi {{ current_user.name }}!</h2>
-	{% endif %}
+            </div>
+        </div>
+        <div class="item">
+            <div class="header">Offers</div>
+            <div class="menu">
+                <a class="item" href="{{ url_for('offersbp.viewOffers') }}">Available Offers</a>
+                <a class="item" href="{{ url_for('offersbp.addOffers') }}">Add Offers</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="header">Rooms</div>
+            <div class="menu">
+                <a class="item" href="{{ url_for('roombp.addRoom') }}">Add New Rooms</a>
+                <a class="item" href="{{ url_for('roombp.showRooms') }}">View Room Details</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="header">Check-In</div>
+            <div class="menu">
+                <a class="item" href="{{ url_for('guestbp.addGuest') }}">Add Guest Details</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="header">Check-Out</div>
+            <div class="menu">
+                <a class="item" href="{{ url_for('viewGuestbp.view') }}">Show Guest Details</a>
+                <a class="item" href="{{ url_for('viewGuestbp.view') }}">Payments</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="header">About Us</div>
+            <div class="menu">
+                <a class="item">About Us</a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="header">Contact Us</div>
+            <div class="menu">
+                <a class="item">Customer Feedback</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui divider">dsdjsfgajkfgksfhskfhaskfhskjh</div>
+
+    {#<div class="ui segment">
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+  <div class="ui fitted divider"></div>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+</div>#}
+    {#{% if current_user.is_authenticated %}
+        <h2 class="ui header">Hi {{ current_user.name }}!</h2>
+    {% endif %}#}
 
 
 {% endblock %}

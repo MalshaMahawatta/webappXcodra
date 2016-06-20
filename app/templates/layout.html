@@ -28,8 +28,6 @@
             <!-- Navbar -->
             <div class="ui attached inverted menu">
                 {{ m.nav_link('index', 'Home') }}
-                {{ m.nav_link('facilitybp.addFacility', 'Facility') }}
-                {{ m.nav_link('offersbp.viewOffers', 'Offers') }}
                 {{ m.nav_link('map', 'Map') }}
                 {{ m.nav_link('contact', 'Contact') }}
 
@@ -68,9 +66,9 @@
                     >
         </div>
 
-        {% endblock %}
 
     </div>
+
     <!-- Message flashing -->
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -82,7 +80,23 @@
         {% endif %}
     {% endwith %}
     <div id="body" class="body">
-        {% block content %}{% endblock %}
+        {% block content %}
+            <p>
+                <button class="ui facebook small button">
+                    <i class="facebook icon"></i>
+                    Facebook
+                </button>
+                <button class="ui twitter button">
+                    <i class="twitter icon"></i>
+                    Twitter
+                </button>
+                <button class="ui google plus button">
+                    <i class="google plus icon"></i>
+                    Google Plus
+                </button>
+
+            </p>
+        {% endblock %}
     </div>
     <div id="footer">
         <div class="ui divider"></div>

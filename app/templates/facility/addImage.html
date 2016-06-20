@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="ui form-user center raised very padded text container segment">
+    <form class="ui form" action="{{ url_for('facilitybp.upload_file') }}" method="post" enctype=multipart/form-data>
+        <h4 class="ui dividing header">Add images</h4>
+        <fieldset>
+                <legend>Selecting facility ID</legend>
+                {{ m.render_field(form.image) }}
+                {{ form.csrf_token }}
+
+        </fieldset>
+
+
+        <p>Select image : <input type=file name=file>
+
+        <p></p>
+        <button class="ui primary button" type="submit" value=Upload>Upload</button>
+
+    </form>
+    </div>
+
+
+
+{% endblock %}

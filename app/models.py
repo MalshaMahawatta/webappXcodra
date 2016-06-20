@@ -80,11 +80,17 @@ class Offers(db.Model, UserMixin):
         return self.title
 
 class Facility(db.Model, UserMixin):
+
     """ room details. """
 
     __tablename__ = 'facilities'
-    facility = db.Column(db.String, primary_key=True)
+    facilityId=db.Column(db.Integer,primary_key=True)
+    facility = db.Column(db.String)
     description = db.Column(db.String)
+    #availability = db.Column(db.Boolean)
+    #creditCard = db.Column(db.Boolean)
+   # bookedBy=db.Column(db.String)
+   # duration=db.Column(db.String)
 
     def get_id(self):
         return self.number

@@ -12,10 +12,10 @@
 
 
     <div id="content">
-        <!-- InstanceBeginEditable name="EditRegion3" -->
+    <!-- InstanceBeginEditable name="EditRegion3" -->
 
-        <h1>Offers</h1>
-        <div class="ui inverted segment">
+    <h1><i class="gift icon"></i>Offers</h1>
+    <div class="ui inverted segment">
 
         <div class="ui segment">
 
@@ -23,58 +23,141 @@
                 <img class="ui left floated medium rounded bordered image "
                      src="{{ url_for('static', filename='img/offers/1.jpg') }}">
             </div>
-            <p> <b>{{ offers[0].title }}</b>
-                    <br><br>
-                    {{ offers[0].description }}</p>
-            <br><br><br>&nbsp;&nbsp;&nbsp;&nbsp<button class="ui inverted red button">Book Now</button><button class="ui inverted red button">Find Out More</button>
+            <p><b><i class="gift icon"></i>{{ offers[0].title }}</b>
+                <br><br>
+                {{ offers[0].description }}</p>
+            <br><br><br>
 
 
+
+            <div class="ui three column very relaxed grid">
+  <div class="column">
+      <button class="ui inverted red button">Book Now</button>
+      <button class="ui inverted red button">Find Out More</button>
+
+  </div>
+  <div class="ui vertical divider">
+
+  </div>
+  <div class="column">
+    <div class="ui labeled button" tabindex="0">
+  <div class="ui red button">
+    <i class="heart icon"></i> Like
+  </div>
+  <a class="ui basic red left pointing label">
+    1,048
+  </a>
 </div>
+  </div>
+                </div>
 
-         <div class="ui segment">
+
+
+
+        </div>
+
+        <div class="ui segment">
 
             <div id="offers" class=" ui medium images">
                 <img class="ui left floated medium rounded bordered image "
                      src="{{ url_for('static', filename='img/offers/2.jpg') }}">
             </div>
-            <p> <b>{{ offers[1].title }}</b>
-                    <br><br>
-                    {{ offers[1].description }}</p>
-             <br><br><br><button class="ui inverted red button">Book Now</button><button class="ui inverted red button">Find Out More</button>
+            <p><b><i class="gift icon"></i>{{ offers[1].title }}</b>
+                <br><br>
+                {{ offers[1].description }}</p>
+            <br><br><br>
+                        <div class="ui three column very relaxed grid">
+  <div class="column">
+      <button class="ui inverted red button">Book Now</button>
+      <button class="ui inverted red button">Find Out More</button>
+
+  </div>
+  <div class="ui vertical divider">
+
+  </div>
+  <div class="column">
+    <div class="ui labeled button" tabindex="0">
+  <div class="ui red button">
+    <i class="heart icon"></i> Like
+  </div>
+  <a class="ui basic red left pointing label">
+    948
+  </a>
+</div>
+  </div>
+                </div>
         </div>
 
 
-         <div class="ui segment">
+        <div class="ui segment">
 
             <div id="offers" class=" ui medium images">
                 <img class="ui left floated medium rounded bordered image "
                      src="{{ url_for('static', filename='img/offers/3.jpg') }}">
             </div>
-            <p> <b>{{ offers[2].title }}</b>
-                    <br><br>
-                    {{ offers[2].description }}</p>
-             <br><br><br><button class="ui inverted red button">Book Now</button><button class="ui inverted red button">Find Out More</button>
+            <p><b><i class="gift icon"></i>{{ offers[2].title }}</b>
+                <br><br>
+                {{ offers[2].description }}</p>
+            <br><br><br>
+                        <div class="ui three column very relaxed grid">
+  <div class="column">
+      <button class="ui inverted red button">Book Now</button>
+      <button class="ui inverted red button">Find Out More</button>
+
+  </div>
+  <div class="ui vertical divider">
+
+  </div>
+  <div class="column">
+    <div class="ui labeled button" tabindex="0">
+  <div class="ui red button">
+    <i class="heart icon"></i> Like
+  </div>
+  <a class="ui basic red left pointing label">
+    1,588
+  </a>
+</div>
+  </div>
+                </div>
         </div>
 
 
-         <div class="ui segment">
+        <div class="ui segment">
 
             <div id="offers" class=" ui medium images">
                 <img class="ui left floated medium rounded bordered image "
                      src="{{ url_for('static', filename='img/offers/4.jpg') }}">
             </div>
-            <p> <b>{{ offers[3].title }}</b>
-                    <br><br>
-                    {{ offers[3].description }}</p>
-             <br><br><br><button class="ui inverted red button">Book Now</button><button class="ui inverted red button">Find Out More</button>
+            <p><b><i class="gift icon"></i>{{ offers[3].title }}</b>
+                <br><br>
+                {{ offers[3].description }}</p>
+            <br><br><br>
+                       <div class="ui three column very relaxed grid">
+  <div class="column">
+      <button class="ui inverted red button">Book Now</button>
+      <button class="ui inverted red button">Find Out More</button>
+
+  </div>
+  <div class="ui vertical divider">
+
+  </div>
+  <div class="column">
+    <div class="ui labeled button" tabindex="0">
+  <div class="ui red button">
+    <i class="heart icon"></i> Like
+  </div>
+  <a class="ui basic red left pointing label">
+    2,048
+  </a>
+</div>
+  </div>
+                </div>
         </div>
 
 
+    </div>
 
-
-</div>
-
-        <!-- InstanceEndEditable -->
+    <!-- InstanceEndEditable -->
 
 
 
@@ -89,7 +172,6 @@
 
         <p>Email :<a href="mailto:xcodra@gmail.com">xcodra@gmail.com</a></p>
     </div>
-
 
 
 {% endblock %}

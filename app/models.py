@@ -34,7 +34,6 @@ class Room(db.Model, UserMixin):
     ''' room details. '''
 
     __tablename__ = 'rooms'
-<<<<<<< HEAD
 
    # number = db.Column(db.Integer,primary_key=True)
    # type = db.Column(db.String)
@@ -46,28 +45,13 @@ class Room(db.Model, UserMixin):
 
 
 
-=======
 
->>>>>>> 7b09e81b4ba997c41ea168dd38ef882ee4afb544
+
     number = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String)
-    bookedBy = db.Column(db.String)
-    duration = db.Column(db.String)
     availability = db.Column(db.Boolean)
     guest_number = db.Column(db.Integer, db.ForeignKey('guests.number'))
-<<<<<<< HEAD
-    guests = relationship("Guest", uselist=False, back_populates="rooms")
-
-=======
-
     guests = db.relationship('Guest', backref=db.backref('rooms', lazy='dynamic'),uselist=True)
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> d1414de794f611ff8ebfaff9c124540f1387b624
->>>>>>> 7b09e81b4ba997c41ea168dd38ef882ee4afb544
 
     def get_id(self):
         return self.number
@@ -85,29 +69,29 @@ class Guest(db.Model, UserMixin):
     type = db.Column(db.String)
 
 
-    def get_id(self):
-        return self.number
+
 
     def get_id(self):
         return self.number
-<<<<<<< HEAD
 
-=======
->>>>>>> 7b09e81b4ba997c41ea168dd38ef882ee4afb544
+
 
 
 class Offers(db.Model, UserMixin):
     ''' offer details. '''
 
     __tablename__ = 'offers'
-    title = db.Column(db.String, primary_key=True)
+    offerID = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String)
     description = db.Column(db.String)
+    percentage =db.Column(db.Integer)
+
+
 
     def get_id(self):
         return self.title
 
-<<<<<<< HEAD
-=======
+
 class Facility(db.Model, UserMixin):
 
     """ room details. """
@@ -123,4 +107,3 @@ class Facility(db.Model, UserMixin):
     def get_id(self):
         return self.number
 
->>>>>>> 7b09e81b4ba997c41ea168dd38ef882ee4afb544

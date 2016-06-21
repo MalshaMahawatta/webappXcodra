@@ -1,14 +1,12 @@
 __author__ = 'Dilini'
-
 from flask.ext.wtf import Form
-from wtforms import TextField, PasswordField,IntegerField,StringField,BooleanField,SelectField
+from wtforms import TextField, PasswordField, IntegerField, StringField, BooleanField, SelectField
 from wtforms.validators import (Required, Length, Email, ValidationError,
                                 EqualTo)
 from app.models import User
 
 
 class Unique(object):
-
     '''
     Custom validator to check an object's attribute
     is unique. For example users should not be able
@@ -29,31 +27,9 @@ class Unique(object):
             raise ValidationError(self.message)
 
 
-class Offers(Form):
+class OffersImage(Form):
+    ''' add gallery photos form. '''
 
-    ''' add offers details form. '''
-
-    title = StringField(validators=[Required()],
-                     description='Offers Type')
-    description = StringField(validators=[Required(), Length(min=10)],
-                        description='Offers Description')
-
-    percentage = IntegerField(validators=[Required()],
-                        description='Offers Percentage')
-
-
-
-    offerID = SelectField(
+    offerID1 = SelectField(
         choices=[('1', 'Offer1'), ('2', 'Offer2'), ('3', 'Offer3'), ('4', 'Offer4')
                 ])
-
-
-
-
-
-
-
-
-
-
-

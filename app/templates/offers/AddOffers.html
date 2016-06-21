@@ -16,12 +16,21 @@
 
 	    	{{ m.render_field(form.title) }}
 	    	{{ m.render_field(form.description) }}
-
-		  	{{ form.csrf_token }}
-
+            {{ m.render_field(form.percentage) }}
 
 
-		  	<button class="ui primary button" type="submit">Submit</button>
+            <fieldset>
+                <legend>Selecting Image Position</legend>
+                {{ m.render_field(form.offerID) }}
+                {{ form.csrf_token }}
+
+            </fieldset>
+
+
+
+
+
+		  	<button class="ui primary button" type="submit" >Submit</button>
 
 
 

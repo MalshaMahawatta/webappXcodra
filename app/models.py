@@ -39,7 +39,6 @@ class Room(db.Model, UserMixin):
     type = db.Column(db.String)
     availability = db.Column(db.Boolean)
     roomPrice = db.Column(db.Integer)
-
     guest_number = db.Column(db.Integer, db.ForeignKey('guests.number'))
     guests = db.relationship('Guest', backref=db.backref('rooms', lazy='dynamic'),uselist=True)
 

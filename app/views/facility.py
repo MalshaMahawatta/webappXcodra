@@ -10,7 +10,7 @@ from app import app, models, db
 from app.forms import facility as facility_details
 from app.forms import imageFacility as facilityImage_details
 
-UPLOAD_FOLDER = 'G:/project 1/webappXcodra/app/static/img/facilities'
+UPLOAD_FOLDER_FACILITIES = 'D:/WebAppXcodra/webappXcodra/app/static/img/facilities/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 def allowed_file(filename):
@@ -85,7 +85,7 @@ def upload_file():
                 return redirect(request.url)
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                file.save(os.path.join(app.config['UPLOAD_FOLDER_FACILITIES'], filename))
                 return redirect(url_for('facilitybp.upload_file',
                                         filename=filename))
 

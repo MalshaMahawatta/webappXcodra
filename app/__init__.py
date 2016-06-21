@@ -10,6 +10,9 @@ from flask import send_from_directory
 
 UPLOAD_FOLDER_GALLERY = 'D:/WebAppXcodra/webappXcodra/app/static/img/gallery/'
 UPLOAD_FOLDER_OFFERS = 'D:/WebAppXcodra/webappXcodra/app/static/img/offers/'
+UPLOAD_FOLDER_FACILITIES = 'D:/WebAppXcodra/webappXcodra/app/static/img/facilities/'
+
+
 
 ALLOWED_EXTENSIONS = set(['jpeg','png','jpg'])
 app = Flask(__name__)

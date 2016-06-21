@@ -10,6 +10,15 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 
 
+
+
+UPLOAD_FOLDER_GALLERY = 'D:/WebAppXcodra/webappXcodra/app/static/img/gallery/'
+UPLOAD_FOLDER_OFFERS = 'D:/WebAppXcodra/webappXcodra/app/static/img/offers/'
+UPLOAD_FOLDER_FACILITIES = 'D:/WebAppXcodra/webappXcodra/app/static/img/facilities/'
+
+
+
+ALLOWED_EXTENSIONS = set(['jpeg','png','jpg'])
 app = Flask(__name__)
 from flask import send_from_directory
 
@@ -33,8 +42,7 @@ bcrypt = Bcrypt(app)
 
 # Import the views
 
-from app.views import main, user, error,room,gallery,facility,imageFacility,guest,offers
-
+from app.views import main, user, error,room,offers,image,gallery,guest,viewGuest,facility
 
 app.register_blueprint(user.userbp)
 app.register_blueprint(room.roombp)
@@ -45,8 +53,10 @@ app.register_blueprint(offers.offersbp)
 
 
 app.register_blueprint(guest.guestbp)
+app.register_blueprint(viewGuest.viewGuestbp)
 app.register_blueprint(facility.facilitybp)
-app.register_blueprint(imageFacility.imageFacilitybp)
+
+
 
 
 from app.toolbox import RecognizedCustomer

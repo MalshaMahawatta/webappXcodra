@@ -24,7 +24,8 @@ import os
 from flask import Flask, request, redirect, url_for
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = 'D:/Xcodra/webappXcodra/app/static/img/offers'
+UPLOAD_FOLDER_GALLERY = 'D:/Xcodra/webappXcodra/app/static/img/gallery/'
+UPLOAD_FOLDER_OFFERS = 'D:/Xcodra/webappXcodra/app/static/img/offers/'
+UPLOAD_FOLDER_FACILITIES = 'D:/Xcodra/webappXcodra/app/static/img/facilities/'
 
-ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
-
+ALLOWED_EXTENSIONS = set(['jpeg','png','jpg'])

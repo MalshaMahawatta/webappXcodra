@@ -50,6 +50,7 @@ class Room(db.Model, UserMixin):
     number = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String)
     availability = db.Column(db.Boolean)
+    roomPrice = db.Column(db.Integer)
     guest_number = db.Column(db.Integer, db.ForeignKey('guests.number'))
     guests = db.relationship('Guest', backref=db.backref('rooms', lazy='dynamic'),uselist=True)
 
@@ -61,13 +62,15 @@ class Guest(db.Model, UserMixin):
     ''' room details. '''
 
     __tablename__ = 'guests'
-    number = db.Column(db.Integer, primary_key=True)
+    number = db.Column(db.Integer, primary_key=True ,autoincrement=True)
     name = db.Column(db.String)
     surname = db.Column(db.String)
     phone = db.Column(db.String)
     email = db.Column(db.String)
     type = db.Column(db.String)
-
+    checkedInTime = db.Column(db.String)
+    recognized=db.Column(db.Boolean)
+    arrivalTime=db.Column(db.String)
 
 
 
@@ -84,9 +87,8 @@ class Offers(db.Model, UserMixin):
     offerID = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String)
     description = db.Column(db.String)
+
     percentage =db.Column(db.Integer)
-
-
 
     def get_id(self):
         return self.title
@@ -97,7 +99,8 @@ class Facility(db.Model, UserMixin):
     """ room details. """
 
     __tablename__ = 'facilities'
-    facility = db.Column(db.String,primary_key=True)
+    facilityId=db.Column(db.Integer,primary_key=True)
+    facility = db.Column(db.String)
     description = db.Column(db.String)
     #availability = db.Column(db.Boolean)
     #creditCard = db.Column(db.Boolean)

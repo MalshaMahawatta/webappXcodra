@@ -6,6 +6,81 @@
 
 {% block content %}
 
-    <h1 class="ui header">Hi {{ current_user.name }} {{ current_user.surname }}!</h1>
+    <div>
+        <div class="ui vertical inverted menu">
+            <div class="item">
+                <div class="header">Gallery</div>
+                <div class="menu">
+                    <a class="item" href="{{ url_for('gallerybp.showGallery') }}">Image Gallery</a>
+                    <a class="item" href="{{ url_for('gallerybp.upload_file') }}">Add Images</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="header">Facilities</div>
+                <div class="menu">
+                    <a class="item">User Facilities</a>
+                    <a class="item">Add Facilities</a>
+
+                </div>
+            </div>
+            <div class="item">
+                <div class="header">Offers</div>
+                <div class="menu">
+                    <a class="item" href="{{ url_for('offersbp.viewOffers') }}">Available Offers</a>
+                    <a class="item" href="{{ url_for('offersbp.addOffers') }}">Add Offers</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="header">Rooms</div>
+                <div class="menu">
+                    <a class="item" href="{{ url_for('roombp.addRoom') }}">Add New Rooms</a>
+                    <a class="item" href="{{ url_for('roombp.showRooms') }}">View Room Details</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="header">Check-In</div>
+                <div class="menu">
+                    <a class="item" href="{{ url_for('guestbp.addGuest') }}">Add Guest Details</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="header">Check-Out</div>
+                <div class="menu">
+                    <a class="item" href="{{ url_for('viewGuestbp.select') }}">Show Guest Details</a>
+                    <a class="item" href="{{ url_for('viewGuestbp.select') }}">Payments</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="header">About Us</div>
+                <div class="menu">
+                    <a class="item">About Us</a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="header">Contact Us</div>
+                <div class="menu">
+                    <a class="item">Customer Feedback</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui center aligned basic segment">
+            <div class="ui left icon action input">
+                <i class="search icon"></i>
+                <input type="text" placeholder="Order #">
+
+                <div class="ui blue submit button">Search</div>
+            </div>
+            <div class="ui horizontal divider">
+                Or
+            </div>
+            <div class="ui teal labeled icon button">
+                Create New Order
+                <i class="add icon"></i>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

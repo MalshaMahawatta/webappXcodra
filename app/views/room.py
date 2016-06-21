@@ -14,19 +14,51 @@ ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 # Create a user blueprint
 roombp = Blueprint('roombp', __name__, url_prefix='/room')
 
-
 @roombp.route('/addRoom', methods=['GET', 'POST'])
 @login_required
 def addRoom():
     form = room_details.Rooms()
     if form.validate_on_submit():
-        room = models.Room(
+        type=form.type.data
+        print(type)
+        if int(type) is 1:
+
+            room = models.Room(
+
+
             number=form.number.data,
-            type=form.type.data,
+            type="superior",
+            roomPrice=75000,
             availability=True,
 
+
+
         )
-        # Insert the room in the database
+        elif int(type)==2:
+            room = models.Room(
+
+
+            number=form.number.data,
+            type="Delux",
+            roomPrice=50000,
+            availability=True,
+
+
+
+             )
+
+        else:
+            room = models.Room(
+
+
+            number=form.number.data,
+            type="Standard",
+            roomPrice=25000,
+            availability=True,
+
+
+             )
+                # Insert the room in the database
         db.session.add(room)
         db.session.commit()
 
@@ -41,14 +73,13 @@ def showRooms():
 
     rooms = models.Room.query.all()
     class ItemTable(Table):
-        classes = ['ui celled table']
+        classes = ['ui celled inverted table']
         number = Col('number')
         type = Col('type')
-        bookedBy = Col('bookedBy')
-        duration = Col('duration ')
         availability = Col('availability ')
         guest_number = Col('guest_number ')
 
     table = ItemTable(rooms)
-    print(table.__html__())
+    #print(table.__html__())
     return render_template('room/showDetails.html', title='Room', rooms=table)
+

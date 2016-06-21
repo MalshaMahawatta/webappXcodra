@@ -1,7 +1,7 @@
 __author__ = 'Malsha'
 
 from flask.ext.wtf import Form
-from wtforms import TextField, PasswordField, IntegerField, StringField, BooleanField
+from wtforms import TextField, PasswordField, IntegerField, StringField, BooleanField,SelectField
 from wtforms.validators import (Required, Length, Email, ValidationError,
                                 EqualTo)
 from app.models import User
@@ -31,8 +31,6 @@ class Unique(object):
 class Guest(Form):
     ''' add guest details form. '''
 
-    number = IntegerField(validators=[Required()],
-                          description='Guest ID')
     name = StringField(validators=[Required()],
                        description='Guest First Name')
 
@@ -45,8 +43,10 @@ class Guest(Form):
     email = StringField(validators=[Required()],
                    description='Guest Email')
 
-    type = StringField(validators=[Required(), Length(min=2)],
-                   description='Room Type')
+    # type = StringField(validators=[Required(), Length(min=2)],
+    #                description='Room Type')
 
-    room_number = IntegerField(validators=[Required()],
-                   description='Room Number')
+    #room_number = IntegerField(validators=[Required()],
+                   #description='Room Number')
+    room_number = SelectField(validators=[Required()],
+                   description='Room Number filtered')

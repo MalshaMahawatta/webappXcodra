@@ -1,10 +1,9 @@
 __author__ = 'Dilini'
 
 import os
-
-import os
 from flask import Flask, request, redirect, url_for
 from werkzeug.utils import secure_filename
+
 from flask import (Blueprint, render_template, redirect, url_for,
                    abort, flash)
 from flask.ext.login import login_user, logout_user, login_required
@@ -18,7 +17,7 @@ from app.forms import imageOffers as imageOffers_details
 ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
 
-UPLOAD_FOLDER =  'D:/Xcodra/webappXcodra/app/static/img/offers'
+UPLOAD_FOLDER_OFFERS =  'D:/Xcodra/webappXcodra/app/static/img/offers'
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
@@ -81,7 +80,6 @@ def addOffers():
         return redirect("http://127.0.0.1:5000/offers/addImage")
     return render_template('offers/addOffers.html', form=form, title='Offers Details')
 
-
 @offersbp.route('/addImage', methods=['GET', 'POST'])
 def upload_file():
    # print 10
@@ -123,13 +121,6 @@ def upload_file():
             flash('added images sucessfully.', 'positive')
             return redirect("http://127.0.0.1:5000/offers/viewOffers")
     return render_template('offers/addImage.html', title='Upload Images',form=form)
-
-
-
-
-
-
-
 
 
 @offersbp.route('/viewOffers',methods=['GET', 'POST'])

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="ui form-user center raised very padded text container segment">
+        {% if current_user.is_authenticated %}
+            <h2 class="ui header">Payment Details</h2>
+               <form class="ui form" action="viewGuest/calculatePayment" method="post">
+
+                   Price: {{price }}<br/><br/>
+                   <button class="ui primary button" type="submit">Paid</button>
+
+
+               </form>
+
+        {% endif %}
+    </div>
+
+{% endblock %}

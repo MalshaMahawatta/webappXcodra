@@ -11,8 +11,15 @@ def index():
 @app.route('/addImage')
 def addImage():
     return render_template('addImage.html', title='Add image')
-
-
+@app.route('/offers')
+def offers():
+    return render_template('addImage.html', title='Add image')
+@app.route('/facilities')
+def facilities():
+    return render_template('addImage.html', title='Add image')
+@app.route('/gallery')
+def gallery():
+    return render_template('addImage.html', title='Add image')
 
 @app.route('/map')
 def map():

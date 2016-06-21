@@ -1,6 +1,7 @@
+
 __author__ = 'Raditha'
 from flask.ext.wtf import Form
-from wtforms import TextField, PasswordField,IntegerField,StringField,BooleanField
+from wtforms import TextField, PasswordField,IntegerField,StringField,BooleanField,SelectField
 from wtforms.validators import (Required, Length, Email, ValidationError,
                                 EqualTo)
 from app.models import User
@@ -34,16 +35,9 @@ class Rooms(Form):
 
     number = IntegerField(validators=[Required()],
                      description='Room Number')
-    type = StringField(validators=[Required(), Length(min=2)],
-                        description='Room Type')
 
-
-
-
-
-
-
-
+    type = SelectField(
+        choices=[('1', 'Superior'), ('2', 'Delux'), ('3', 'Standard')])
 
 
 

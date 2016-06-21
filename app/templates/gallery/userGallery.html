@@ -1,56 +1,103 @@
 {% extends "layout.html" %}
-
+{% block head %}
+    {{ super() }}
+{% endblock %}
 {% block content %}
 
 
-    <div class="grey column" >
+   {# <div class="grey column">
 
         <img class="ui fluid image" src="{{ url_for('static', filename='img/download.jpg') }}"
              id="Image1"
-        onMouseOver="MM_swapImage('Image1','','/img/banner_bg.jpg',1)" onMouseOut="MM_swapImgRestore()">
-    </div>
+                >
+    </div>#}
 
     <div id="content">
         <!-- InstanceBeginEditable name="EditRegion3" -->
 
-        <h1>Photo gallery </h1>
+        <h2 class="ui header">
+            <br>
+            <i class="photo icon"></i>
 
+            <div class="content">
+                Gallery
+            </div>
+        </h2>
+        <div class="ui inverted segment">
 
-        <div id="gallery" class=" ui medium images">
-            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/1.jpeg') }}">
-            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/2.jpeg') }}">
-            <img class="ui medium rounded bordered image "
-                 src="{{ url_for('static', filename='img/3.jpeg') }}">
-            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/4.jpeg') }}">
+            <div id="gallery" class="ui medium images">
+                <a class="ui red right corner label">
+                    <i class="photo icon"></i>
+                </a>
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/gallery/1.jpeg') }}">
+            </div>
+            <div id="gallery" class="ui medium images">
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/gallery/2.jpeg') }}">
+            </div>
+            <div id="gallery" class="ui medium images">
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/gallery/3.jpeg') }}">
+            </div>
+            <div id="gallery" class="ui medium images">
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/gallery/4.jpeg') }}">
+            </div>
 
         </div>
-        <br/>
-        <br/>
+        <div class="ui inverted segment">
 
-        <div id="gallery" class=" ui medium images">
-            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/5.jpeg') }}">
-            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/6.jpeg') }}">
-            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/7.jpeg') }}">
-            <img class="ui medium rounded bordered image " src="{{ url_for('static', filename='img/8.jpeg') }}">
+            <div id="gallery" class="ui centered medium images">
+                <a class="ui red right corner label">
+                    <i class="photo icon"></i>
+                </a>
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/gallery/5.jpeg') }}">
+            </div>
+            <div id="gallery" class="ui centered medium images">
+
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/gallery/6.jpeg') }}">
+            </div>
+            <div id="gallery" class="ui centered medium images">
+
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/gallery/7.jpeg') }}">
+            </div>
+            <div id="gallery" class="ui centered medium images">
+
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/gallery/8.jpeg') }}">
+            </div>
 
         </div>
-        <br/>
-        <br/>
-        <!-- InstanceEndEditable -->
+
+        <div class="ui inverted segment">
+
+            <div id="gallery" class="ui medium images">
+                <a class="ui red right corner label">
+                    <i class="photo icon"></i>
+                </a>
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/gallery/9.jpeg') }}">
+            </div>
+            <div id="gallery" class="ui medium images">
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/gallery/10.jpeg') }}">
+            </div>
+            <div id="gallery" class="ui medium images">
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/gallery/11.jpeg') }}">
+            </div>
+            <div id="gallery" class="ui medium images">
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/gallery/12.jpeg') }}">
+            </div>
+
+        </div>
+
     </div>
-
-    <div id="footer">
-        <h3>Contact us</h3>
-
-        <p>Address : No.49,Colombo 1,SriLanka.</p>
-
-        <p>Telephone :0112704280</p>
-
-        <p>Mobile :0719865395</p>
-
-        <p>Email :<a href="mailto:xcodra@gmail.com">xcodra@gmail.com</a></p>
-    </div>
-
 
 
 {% endblock %}

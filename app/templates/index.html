@@ -1,23 +1,98 @@
 {% extends "layout.html" %}
 
-{% block head %}
-    {{ super() }}
-{% endblock %}
+
 
 {% block content %}
 
+    <div class="ui three column very relaxed grid">
+        <div class="column">
+            <div>
+                <div class="ui vertical inverted menu">
+                    <div class="item">
+                        <div class="header">Gallery</div>
+                        <div class="menu">
+                            <a class="item" href="{{ url_for('gallerybp.showGallery') }}">Image Gallery</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">Facilities</div>
+                        <div class="menu">
+                            <a class="item">User Facilities</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">Offers</div>
+                        <div class="menu">
+                            <a class="item" href="{{ url_for('offersbp.viewOffers') }}">Available Offers</a>
+                        </div>
+                    </div>
 
-      <div class="grey column">
+                    {# <div class="item">
+            <div class="header">Rooms</div>
+            <div class="menu">
+                <a class="item" href="{{ url_for('roombp.addRoom') }}">Add New Rooms</a>
+                <a class="item" href="{{ url_for('roombp.showRooms') }}">View Room Details</a>
+            </div>
+        </div>#}
 
-        <img class="ui fluid image" src="{{ url_for('static', filename='img/download.jpg') }}"
-             id="Image1"
-             onMouseOver="MM_swapImage('Image1','','/img/banner_bg.jpg',1)" onMouseOut="MM_swapImgRestore()">
+                    <div class="item">
+                        <div class="header">Check-In</div>
+                        <div class="menu">
+                            <a class="item" href="{{ url_for('guestbp.addGuest') }}">Add Guest Details</a>
+                        </div>
+                    </div>
+                    {#<div class="item">
+            <div class="header">Check-Out</div>
+            <div class="menu">
+                <a class="item" href="{{ url_for('viewGuestbp.select') }}">Show Guest Details</a>
+                <a class="item" href="{{ url_for('viewGuestbp.select') }}">Payments</a>
+            </div>
+        </div>#}
+                    <div class="item">
+                        <div class="header">About Us</div>
+                        <div class="menu">
+                            <a class="item">About Us</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">Contact Us</div>
+                        <div class="menu">
+                            <a class="item">Customer Feedback</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui hidden vertical divider">
+            and
+        </div>
+        <div class="column">
+            <p> dgjdjgfhkjkhkhkhkyuryfhjfjf</p>
+
+            <p>chgasdfghjwertyuibhuertyughj</p>
+
+            <p>qwertyuiolkjhgfdsazxcvbnmkjhgfdswertyui</p>
+
+            <p>poiuytrewasdfghjkmnbvcxzasdfghjkiuytrew</p>
+        </div>
+        <div class="ui hidden vertical divider">
+            not
+        </div>
+        <div class="column">
+            <p>rtyuiokjhgvbnmsdfgwert</p>
+
+            <p>rtyufghjvbnuiojkbnmasdqwe</p>
+
+            <p>qwerasdfgzxcvbnmhjklyuiop</p>
+
+            <p>sdfghertyxcvbndfghjrtyufgh</p>
+        </div>
     </div>
 
-	<h1 class="ui header">{{ title }}</h1>
-
-	{% if current_user.is_authenticated %}
-	  	<h2 class="ui header">Hi {{ current_user.name }}!</h2>
-	{% endif %}
+    {#{% if current_user.is_authenticated %}
+        <h2 class="ui header">Hi {{ current_user.name }}!</h2>
+    {% endif %}
+    <p>Make this page as the home page for both customers and system users. Do not add that full menu here
+    </p>#}
 
 {% endblock %}

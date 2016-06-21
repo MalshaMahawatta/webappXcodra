@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
     <div class="grey column">
 
         <img class="ui fluid image" src="{{ url_for('static', filename='img/download.jpg') }}"
@@ -62,6 +61,7 @@
                 <img class="ui left floated medium rounded bordered image "
                      src="{{ url_for('static', filename='img/offers/2.jpg') }}">
             </div>
+
             <p><b><i class="gift icon"></i>{{ offers[1].title }}</b>
                 <br><br>
                 {{ offers[1].description }}</p>
@@ -95,6 +95,7 @@
                 <img class="ui left floated medium rounded bordered image "
                      src="{{ url_for('static', filename='img/offers/3.jpg') }}">
             </div>
+
             <p><b><i class="gift icon"></i>{{ offers[2].title }}</b>
                 <br><br>
                 {{ offers[2].description }}</p>
@@ -124,10 +125,12 @@
 
         <div class="ui segment">
 
+
             <div id="offers" class=" ui medium images">
                 <img class="ui left floated medium rounded bordered image "
                      src="{{ url_for('static', filename='img/offers/4.jpg') }}">
             </div>
+
             <p><b><i class="gift icon"></i>{{ offers[3].title }}</b>
                 <br><br>
                 {{ offers[3].description }}</p>
@@ -172,6 +175,6 @@
 
         <p>Email :<a href="mailto:xcodra@gmail.com">xcodra@gmail.com</a></p>
     </div>
-
+</div>
 
 {% endblock %}

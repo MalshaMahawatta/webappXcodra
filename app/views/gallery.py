@@ -9,12 +9,8 @@ from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
 from app.forms import gallery as gallery_details
 
-
-UPLOAD_FOLDER = '/D:/Xcodra/webappXcodra/app/static/img/'
-
+UPLOAD_FOLDER_GALLERY = 'D:/Xcodra/webappXcodra/app/static/img/gallery/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
-
-
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -25,14 +21,16 @@ gallerybp = Blueprint('gallerybp', __name__, url_prefix='/gallery')
 
 
 @gallerybp.route('/addImage', methods=['GET', 'POST'])
+@login_required
 def upload_file():
-
     form = gallery_details.Gallery()
     if form.validate_on_submit():
 
         image = form.image.data
         print image
-        imageNew=str(image)+".jpeg"
+
+        imageNew = str(image) + ".jpeg"
+
         print imageNew
 
         if request.method == 'POST':
@@ -44,6 +42,7 @@ def upload_file():
             print file.filename
             # if user does not select file, browser also
             # submit a empty part without filename
+
             file.filename=str(image)+".jpg"
 
             print file.filename
@@ -52,7 +51,7 @@ def upload_file():
                 return redirect(request.url)
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                file.save(os.path.join(app.config['UPLOAD_FOLDER_GALLERY'], filename))
                 return redirect(url_for('gallerybp.upload_file',
                                         filename=filename))
 
@@ -62,6 +61,6 @@ def upload_file():
 
 
 @gallerybp.route('/showGallery', methods=['GET', 'POST'])
-@login_required
+
 def showGallery():
     return render_template('gallery/userGallery.html', title='Gallery')

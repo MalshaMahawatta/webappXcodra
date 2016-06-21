@@ -15,7 +15,6 @@ UPLOAD_FOLDER_OFFERS = 'D:/WebAppXcodra/webappXcodra/app/static/img/offers/'
 ALLOWED_EXTENSIONS = set(['jpeg','png','jpg'])
 
 
-
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
@@ -26,13 +25,14 @@ gallerybp = Blueprint('gallerybp', __name__, url_prefix='/gallery')
 
 @gallerybp.route('/addImage', methods=['GET', 'POST'])
 def upload_file():
-
     form = gallery_details.Gallery()
     if form.validate_on_submit():
 
         image = form.image.data
         print image
-        imageNew=str(image)+".jpeg"
+
+        imageNew = str(image) + ".png"
+
         print imageNew
 
         if request.method == 'POST':
@@ -44,7 +44,9 @@ def upload_file():
             print file.filename
             # if user does not select file, browser also
             # submit a empty part without filename
-            file.filename=str(image)+".jpeg"
+
+            file.filename = str(image) + ".png"
+
             print file.filename
             if file.filename == '':
                 flash('No selected file')

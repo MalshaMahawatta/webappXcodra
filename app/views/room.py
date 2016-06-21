@@ -14,7 +14,6 @@ ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 # Create a user blueprint
 roombp = Blueprint('roombp', __name__, url_prefix='/room')
 
-
 @roombp.route('/addRoom', methods=['GET', 'POST'])
 @login_required
 def addRoom():
@@ -83,3 +82,4 @@ def showRooms():
     table = ItemTable(rooms)
     #print(table.__html__())
     return render_template('room/showDetails.html', title='Room', rooms=table)
+

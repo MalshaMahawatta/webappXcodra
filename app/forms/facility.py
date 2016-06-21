@@ -1,13 +1,12 @@
 __author__ = 'Raditha'
 from flask.ext.wtf import Form
-from wtforms import TextField, PasswordField,IntegerField,StringField,BooleanField
+from wtforms import TextField, PasswordField, IntegerField, StringField, BooleanField
 from wtforms.validators import (Required, Length, Email, ValidationError,
                                 EqualTo)
 from app.models import User
 
 
 class Unique(object):
-
     '''
     Custom validator to check an object's attribute
     is unique. For example users should not be able
@@ -29,20 +28,11 @@ class Unique(object):
 
 
 class Facilities(Form):
-
     ''' add room details form. '''
 
+    facilityId = IntegerField(validators=[Required()],
+                           description='facility id')
     facility = StringField(validators=[Required()],
-                     description='facility name')
+                           description='facility name')
     description = StringField(validators=[Required(), Length(min=2)],
-                        description='facility description')
-
-
-
-
-
-
-
-
-
-
+                              description='facility description')

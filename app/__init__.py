@@ -3,6 +3,13 @@ from flask import Flask
 
 from flask import send_from_directory
 
+
+
+
+
+UPLOAD_FOLDER = 'G:/project 1/webappXcodra/app/static/img/facilities'
+
+ALLOWED_EXTENSIONS = set([ 'png', 'jpg', 'jpeg'])
 app = Flask(__name__)
 from flask import send_from_directory
 
@@ -22,7 +29,7 @@ from flask.ext.bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 # Import the views
-from app.views import main, user, error,room,offers,image,gallery,facility,imageFacility,guest
+from app.views import main, user, error,room,offers,image,gallery,guest,viewGuest,facility
 
 app.register_blueprint(user.userbp)
 app.register_blueprint(room.roombp)
@@ -30,8 +37,10 @@ app.register_blueprint(gallery.gallerybp)
 app.register_blueprint(offers.offersbp)
 app.register_blueprint(image.imagebp)
 app.register_blueprint(guest.guestbp)
+app.register_blueprint(viewGuest.viewGuestbp)
 app.register_blueprint(facility.facilitybp)
-app.register_blueprint(imageFacility.imageFacilitybp)
+
+
 
 
 from app.toolbox import RecognizedCustomer
@@ -74,11 +83,6 @@ class ModelView(ModelView):
             ))
         return True
 
-
-UPLOAD_FOLDER_GALLERY = 'D:/WebAppXcodra/webappXcodra/app/static/img/gallery/'
-UPLOAD_FOLDER_OFFERS = 'D:/WebAppXcodra/webappXcodra/app/static/img/offers/'
-
-ALLOWED_EXTENSIONS = set(['jpeg','png','jpg'])
 
 # Users
 admin.add_view(ModelView(User, db.session))

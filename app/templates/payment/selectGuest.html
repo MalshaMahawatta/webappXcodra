@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	<div class="ui form-user center raised very padded text container segment">
+		<form class="ui form" action="{{ url_for('viewGuestbp.select') }}" method="post">
+			<h4 class="ui dividing header">Select guest</h4>
+	    	{{ m.render_field(form.number) }}
+
+		  	{{ form.csrf_token }}
+		  	<button class="ui primary button" type="submit">View guest</button>
+		</form>
+	</div>
+
+{% endblock %}

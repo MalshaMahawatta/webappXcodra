@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="ui form-user center raised very padded text container segment">
+        {% if current_user.is_authenticated %}
+            <h2 class="ui header">Guest Details</h2>
+            <form class="ui form" action="{{ url_for('viewGuestbp.view') }}" method="post">
+
+                Number: {{ payments.number }}<br/>
+                Name: {{ payments.name }}<br/>
+                Surname:{{ payments.surname }}<br/>
+                Phone No: {{ payments.phone }}<br/>
+                Email:{{ payments.email }}<br/>
+                Type: {{ payments.type }}<br/>
+
+                <button class="ui primary button" type="submit">Check out</button>
+
+
+            </form>
+
+        {% endif %}
+    </div>
+
+{% endblock %}

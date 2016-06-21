@@ -1,8 +1,6 @@
 {% extends "layout.html" %}
 
-{% block head %}
-    {{ super() }}
-{% endblock %}
+
 
 {% block content %}
 
@@ -11,5 +9,6 @@
 	{% if current_user.is_authenticated %}
 	  	<h2 class="ui header">Hi {{ current_user.name }}!</h2>
 	{% endif %}
+
 
 {% endblock %}

@@ -1,3 +1,4 @@
+
 __author__ = 'Raditha'
 from flask.ext.wtf import Form
 from wtforms import TextField, PasswordField,IntegerField,StringField,BooleanField,SelectField
@@ -37,11 +38,6 @@ class Rooms(Form):
 
     type = SelectField(
         choices=[('1', 'Superior'), ('2', 'Delux'), ('3', 'Standard')])
-
-
-
-
-
 
 
 

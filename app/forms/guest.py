@@ -31,8 +31,6 @@ class Unique(object):
 class Guest(Form):
     ''' add guest details form. '''
 
-    number = IntegerField(validators=[Required()],
-                          description='Guest ID')
     name = StringField(validators=[Required()],
                        description='Guest First Name')
 

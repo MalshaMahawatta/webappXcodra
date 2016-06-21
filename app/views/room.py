@@ -82,3 +82,4 @@ def showRooms():
     table = ItemTable(rooms)
     #print(table.__html__())
     return render_template('room/showDetails.html', title='Room', rooms=table)
+

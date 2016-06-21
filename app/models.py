@@ -50,14 +50,15 @@ class Guest(db.Model, UserMixin):
     ''' room details. '''
 
     __tablename__ = 'guests'
-    number = db.Column(db.Integer, primary_key=True)
+    number = db.Column(db.Integer, primary_key=True ,autoincrement=True)
     name = db.Column(db.String)
     surname = db.Column(db.String)
     phone = db.Column(db.String)
     email = db.Column(db.String)
     type = db.Column(db.String)
-    checkedInTime=db.Column(db.String)
-
+    checkedInTime = db.Column(db.String)
+    recognized=db.Column(db.Boolean)
+    arrivalTime=db.Column(db.String)
 
     def get_id(self):
         return self.number

@@ -39,7 +39,6 @@ def addGuest():
         checkedInTime=datetime.now().date()
         print checkedInTime
         guest = models.Guest(
-            number=form.number.data,
             name=form.name.data,
             surname=form.surname.data,
             phone=form.phone.data,
@@ -51,8 +50,11 @@ def addGuest():
         # Insert the guest in the database
         db.session.add(guest)
         db.session.commit()
-
-        roomToLink = models.Room.query.filter_by(number=form.room_number.data).first()
+        index=int(form.room_number.data) - 1
+        print index
+        roomNumberToMap=availableRooms[index].split('-')[0]
+        print roomNumberToMap
+        roomToLink = models.Room.query.filter_by(number=roomNumberToMap).first()
         roomToLink.guests.append(guest)
         #roomToLink.guests(guest)
         db.session.commit()
@@ -61,3 +63,8 @@ def addGuest():
         return redirect(url_for('index'))
     return render_template('guest/details.html', form=form, title='Guest Details',availableRooms='availableRooms')
 
+@guestbp.route('/showRecognizedGuest', methods=['GET', 'POST'])
+@login_required
+def recogedGuest():
+
+    return render_template('guest/recognizedGuest.html',methods=['GET','POST'])

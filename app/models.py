@@ -73,6 +73,10 @@ class Guest(db.Model, UserMixin):
     arrivalTime=db.Column(db.String)
 
 
+    offer_number = db.Column(db.Integer, db.ForeignKey('offers.offerID'))
+    offers = db.relationship('Offers', backref=db.backref('guests', lazy='dynamic'),uselist=True)
+
+
 
     def get_id(self):
         return self.number
@@ -87,7 +91,6 @@ class Offers(db.Model, UserMixin):
     offerID = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String)
     description = db.Column(db.String)
-
     percentage =db.Column(db.Integer)
 
     def get_id(self):
@@ -109,4 +112,5 @@ class Facility(db.Model, UserMixin):
 
     def get_id(self):
         return self.number
+
 

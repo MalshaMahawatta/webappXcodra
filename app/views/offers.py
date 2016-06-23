@@ -51,14 +51,8 @@ def addOffers():
         offer = models.Offers.query.filter_by(offerID=form.offerID.data).first()
 
         offer.title = form.title.data
-
-
         offer.description = form.description.data
-
-
         offer.OfferID = form.offerID.data
-
-
         offers.percentage = form.offerID.data
         db.session.commit()
 
@@ -114,7 +108,7 @@ def upload_file():
                 return redirect(request.url)
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                file.save(os.path.join(app.config['UPLOAD_FOLDER_OFFERS'], filename))
                 return redirect(url_for('offersbp.upload_file',
                                         filename=filename))
 
@@ -124,7 +118,7 @@ def upload_file():
 
 
 @offersbp.route('/viewOffers',methods=['GET', 'POST'])
-@login_required
+
 def viewOffers():
     offers=models.Offers.query.all()
     return render_template('offers/viewOffers.html', title='Offers',offers=offers)

@@ -43,7 +43,7 @@ def upload_file():
             # if user does not select file, browser also
             # submit a empty part without filename
 
-            file.filename=str(image)+".jpg"
+            file.filename=str(image)+".jpeg"
 
             print file.filename
             if file.filename == '':
@@ -55,8 +55,9 @@ def upload_file():
                 return redirect(url_for('gallerybp.upload_file',
                                         filename=filename))
 
-                flash('added images sucessfully.', 'positive')
-                return redirect(url_for('index'))
+            flash('added images sucessfully.', 'positive')
+            return redirect(url_for('index'))
+
     return render_template('gallery/gallery.html', form=form, title='Upload Images')
 
 

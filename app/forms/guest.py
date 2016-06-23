@@ -50,3 +50,6 @@ class Guest(Form):
                    #description='Room Number')
     room_number = SelectField(validators=[Required()],
                    description='Room Number filtered')
+
+    offer_number = SelectField(validators=[Required()],
+                   description='offer Number')

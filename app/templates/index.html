@@ -1,12 +1,18 @@
 {% extends "layout.html" %}
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<style>
+    .mySlides {
+        display: none;
+    }
+</style>
 
 
 {% block content %}
 
     <div class="ui three column very relaxed grid">
-        <div class="column">
-            <div>
+        <div class="left column">
+            <div><center>
                 <div class="ui vertical inverted menu">
                     <div class="item">
                         <div class="header">Gallery</div>
@@ -15,9 +21,20 @@
                         </div>
                     </div>
                     <div class="item">
+                        <div class="header">Rooms</div>
+                        <div class="menu">
+                            <a class="item" href="{{ url_for('roombp.superior') }}">Superior</a>
+                            <a class="item" href="{{ url_for('roombp.delux') }}">Delux</a>
+                            <a class="item" href="{{ url_for('roombp.standard') }}">Standard</a>
+                        </div>
+                    </div>
+                    <div class="item">
                         <div class="header">Facilities</div>
                         <div class="menu">
-                            <a class="item">User Facilities</a>
+                            <a class="item" href="{{ url_for('facilitybp.facility1') }}">Swmming Pool</a>
+                            <a class="item" href="{{ url_for('facilitybp.facility2') }}">Resturant</a>
+                            <a class="item" href="{{ url_for('facilitybp.facility3') }}">Spa</a>
+                            <a class="item" href="{{ url_for('facilitybp.facility4') }}">Gym</a>
                         </div>
                     </div>
                     <div class="item">
@@ -38,7 +55,7 @@
                     <div class="item">
                         <div class="header">Check-In</div>
                         <div class="menu">
-                            <a class="item" href="{{ url_for('guestbp.addGuest') }}">Add Guest Details</a>
+                            <a class="item" href="{{ url_for('guestbp.addGuest') }}">Booking</a>
                         </div>
                     </div>
                     {#<div class="item">
@@ -61,32 +78,115 @@
                         </div>
                     </div>
                 </div>
+                </center>
             </div>
         </div>
         <div class="ui hidden vertical divider">
-            and
+
         </div>
         <div class="column">
-            <p> dgjdjgfhkjkhkhkhkyuryfhjfjf</p>
+            <p>
 
-            <p>chgasdfghjwertyuibhuertyughj</p>
+            <h2 class="ui white inverted header">
+                <font face="Calisto MT"><center>Welcome to Hotel Xcodra</center></font>
+            </h2>
+            </p>
+            {#            <p><b> <center>Hotel Xcodra !!!</center>  </b></></p>#}
+            <p>
 
-            <p>qwertyuiolkjhgfdsazxcvbnmkjhgfdswertyui</p>
+            <h3 class="ui white inverted header"><b>
+                <font face="Calisto MT"><center> The Heaven on Earth</center></font>
+            </b></h3>
+            </p>
+            <br>
 
-            <p>poiuytrewasdfghjkmnbvcxzasdfghjkiuytrew</p>
+            <p><font size="3" color="white">The finest five star hotel in Sri Lanka with the best of dinning,
+                accommodation and entertainment facilities. This 450 roomed beauty is located facing the foaming ripples
+                of the Indian Ocean and remains to be one of the best five star hotels in Sri Lanka.</font></p>
+            <br/>
+
+            <p><font size="3" color="white">Step-in to be lost in unearthly cuisines, cosy hideouts, heavenly
+                surrounding and the best of services, which other five star hotels in Sri Lanka could not offer..</font>
+            </p>
+            <br/>
+
+            <p><font size="3" color="white">Xcodra Hotel Sri Lanka; one of the finest five star hotels in Sri Lanka is
+                not only the best place to relax, eat and indulge, but is also the finest place to celebrate.</font></p>
+            <br/>
+
+            <p><font size="3" color="white">
+                <center>Come! Delight & breathe the air of luxury at the heart of Colombo.</center>
+            </font></p>
+            <br/>
+
+            {#<p><img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/imagesLogos/tripadvisor.jpg') }}" width="30" height="20">
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/imagesLogos/check.jpg') }}" width="30" height="20">
+                <img class="ui left floated medium rounded bordered image "
+                     src="{{ url_for('static', filename='img/imagesLogos/zoover.jpg') }}" width="30" height="20"></p>#}
+            {#  <img src="images/index1.jpg" width="150" height="100"></p>#}
+            <div class="ui tiny centered images"><center>
+                <img class="ui centered spaced rounded middle aligned image" src="{{ url_for('static', filename='img/imagesLogos/trip.png') }}">
+                <img class="ui centered spaced rounded middle aligned image" src="{{ url_for('static', filename='img/imagesLogos/holiday-check.jpg') }}">
+                <img class="ui centered spaced rounded middle aligned image" src="{{ url_for('static', filename='img/imagesLogos/zoover.jpg') }}"></center></div>
         </div>
         <div class="ui hidden vertical divider">
-            not
         </div>
         <div class="column">
-            <p>rtyuiokjhgvbnmsdfgwert</p>
+            </br>
+            </br>
+            </br>
 
-            <p>rtyufghjvbnuiojkbnmasdqwe</p>
 
-            <p>qwerasdfgzxcvbnmhjklyuiop</p>
+            <div>
+            <p>
+            <center><img class="mySlides"
+                         src="{{ url_for('static', filename='img/homePageImages/dining1.jpg') }}"
+                id="Image1" style="width:100%">
+            </center>
 
-            <p>sdfghertyxcvbndfghjrtyufgh</p>
+             <center><img class="mySlides"
+                         src="{{ url_for('static', filename='img/homePageImages/rooms1.jpg') }}"
+                id="Image1" style="width:100%">
+            </center>
+
+            <center><img class="mySlides"
+                         src="{{ url_for('static', filename='img/homePageImages/location1.jpg') }}"
+                id="Image1" style="width:100%">
+            </center>
+
+            <center><img class="mySlides"
+                         src="{{ url_for('static', filename='img/homePageImages/facilities1.jpg') }}"
+                id="Image1" style="width:100%">
+            </center>
+            </p>
+            </div>
+
+              <script>
+                var myIndex = 0;
+                carousel();
+
+                function carousel() {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    myIndex++;
+                    if (myIndex > x.length) {
+                        myIndex = 1
+                    }
+                    x[myIndex - 1].style.display = "block";
+                    setTimeout(carousel, 2000); // Change image every 2 seconds
+                }
+            </script>
+
+
+
+
         </div>
+
     </div>
 
     {#{% if current_user.is_authenticated %}
@@ -96,3 +196,6 @@
     </p>#}
 
 {% endblock %}
+
+
+

@@ -95,22 +95,39 @@ def calculatePayment():
 
     arrivaldate = date(y3, m3, d3)
     departureDate = date(y4, m4, d4)
-    duration1 = departureDate - arrivaldate
-    print duration1.days
-
-    # duration= payment.duration
-    # print duration
-
-    # room_type = models.Room.query.filter_by(number=n).first()
-    # print room_type.type
 
     roomTable = models.Room.query.filter_by(number=n).first()
+    global price1
     price1 = roomTable.roomPrice
+    global price
 
-    g = duration1 * price1
-    print g
-    h = str(g)
-    price = h[:-13]
-    print price
+    guestRow = models.Room.query.filter_by(number=n).first()
+    m = guestRow.guest_number
+    offerTable = models.Guest.query.filter_by(number=m).first()
+
+    offerid = offerTable.offer_number
+    getRate = models.Offers.query.filter_by(offerID=offerid).first()
+    global rate
+    rate = getRate.percentage
+
+    if arrivaldate == departureDate:
+        price = price1 - (price1 * rate / 100)
+
+    else:
+
+        duration1 = departureDate - arrivaldate
+        print duration1.days
+        p = duration1 * price1
+
+        print p
+
+        g = p - (p * rate / 100)
+
+        h = str(g)
+        price = h[:-13]
+        print price
+
+    room_type = models.Room.query.filter_by(number=n).first()
+    print room_type.type
 
     return render_template('payment/price.html', title='Payment Details', price=price)

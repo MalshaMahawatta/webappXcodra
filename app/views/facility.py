@@ -13,9 +13,11 @@ from app.forms import imageFacility as facilityImage_details
 UPLOAD_FOLDER_FACILITIES = 'D:/WebAppXcodra/webappXcodra/app/static/img/facilities/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+
 
 # Serializer for generating random tokens
 ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
@@ -37,10 +39,10 @@ def addFacility():
         )
 
         facility1 = models.Facility.query.filter_by(facilityId=form.facilityId.data).first()
-        facility1.facility=form.facility.data
+        facility1.facility = form.facility.data
         db.session.commit()
 
-        facility1.description=form.description.data
+        facility1.description = form.description.data
         db.session.commit()
 
 
@@ -58,6 +60,7 @@ def addFacility():
 def showFacilities():
     facilities = models.Facility.query.all()
     return render_template('facility/showDetails.html', title='Facility', facilities=facilities)
+
 
 @facilitybp.route('/addImage', methods=['GET', 'POST'])
 def upload_file():
@@ -94,11 +97,25 @@ def upload_file():
     return render_template('facility/addImage.html', form=form, title='Upload Images')
 
 
+@facilitybp.route('/facility1', methods=['GET', 'POST'])
+def facility1():
+    facilities = models.Facility.query.all()
+    return render_template('facility/facility1.html', title='Facility', facilities=facilities)
 
 
+@facilitybp.route('/facility2', methods=['GET', 'POST'])
+def facility2():
+    facilities = models.Facility.query.all()
+    return render_template('facility/facility2.html', title='Facility', facilities=facilities)
 
-# @facilitybp.route('/showFacilities', methods=['GET', 'POST'])
-# @login_required
-# def showFacilities():
-#     facilities = models.Facility.query.all()
-#     # return render_template('facility/showDetails.html', title='Facility', facilities=facilities)
+
+@facilitybp.route('/facility3', methods=['GET', 'POST'])
+def facility3():
+    facilities = models.Facility.query.all()
+    return render_template('facility/facility3.html', title='Facility', facilities=facilities)
+
+
+@facilitybp.route('/facility4', methods=['GET', 'POST'])
+def facility4():
+    facilities = models.Facility.query.all()
+    return render_template('facility/facility4.html', title='Facility', facilities=facilities)

@@ -33,6 +33,22 @@ def addGuest():
         k=k+1
 
     form.room_number.choices=a
+
+    #append offerID column
+    availableOffers=[]
+    availableOffersObj= models.Offers.query.all()
+    for z in availableOffersObj:
+        aOfferDetails=str(z.offerID) + '-' + str(z.title)
+        availableOffers.append(aOfferDetails)
+    print availableOffers
+    j=1
+    b=[]
+    for p in availableOffers:
+        b.append((str(j),str(p)))
+        j=j+1
+
+    form.offer_number.choices=b
+
     #form.room_number1.choices[availableRooms]=[(key, availableRooms[key]) for key in availableRooms]
     if form.validate_on_submit():
 
@@ -58,6 +74,24 @@ def addGuest():
         roomToLink.guests.append(guest)
         #roomToLink.guests(guest)
         db.session.commit()
+
+
+        index1=int(form.offer_number.data) - 1
+        print index1
+        guestNumberToMap=availableOffers[index1].split('-')[0]
+        print guestNumberToMap
+        guestToLink = models.Offers.query.filter_by(offerID=guestNumberToMap).first()
+        guestToLink.guests.append(guest)
+        #roomToLink.guests(guest)
+        db.session.commit()
+
+        gnumber1 = models.Room.query.filter_by(number=index).first()
+
+        gnumber1.availability = False
+
+        db.session.commit()
+
+
 
         flash('added guest details sucessfully.', 'positive')
         return redirect(url_for('index'))

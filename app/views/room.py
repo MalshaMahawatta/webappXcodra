@@ -83,3 +83,19 @@ def showRooms():
     #print(table.__html__())
     return render_template('room/showDetails.html', title='Room', rooms=table)
 
+
+@roombp.route('/delux', methods=['GET', 'POST'])
+def delux():
+
+    return render_template('room/deluxRooms.html', title='delux')
+
+@roombp.route('/standard', methods=['GET', 'POST'])
+def standard():
+
+    return render_template('room/standard.html', title='standard')
+
+@roombp.route('/superior', methods=['GET', 'POST'])
+def superior():
+
+    return render_template('room/superiorRooms.html', title='superior')
+

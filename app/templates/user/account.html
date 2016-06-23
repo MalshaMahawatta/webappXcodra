@@ -18,8 +18,8 @@
             <div class="item">
                 <div class="header">Facilities</div>
                 <div class="menu">
-                    <a class="item">User Facilities</a>
-                    <a class="item">Add Facilities</a>
+                    <a class="item" href="{{ url_for('facilitybp.showFacilities') }}">User Facilities</a>
+                    <a class="item" href="{{ url_for('facilitybp.addFacility') }}">Add Facilities</a>
 
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <div class="item">
                 <div class="header">Check-In</div>
                 <div class="menu">
-                    <a class="item" href="{{ url_for('guestbp.addGuest') }}">Add Guest Details</a>
+                    <a class="item" href="{{ url_for('guestbp.addGuest') }}"> Guest Details</a>
                 </div>
             </div>
             <div class="item">

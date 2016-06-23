@@ -113,4 +113,20 @@ class Facility(db.Model, UserMixin):
     def get_id(self):
         return self.number
 
+class FeedBack(db.Model, UserMixin):
+
+
+
+    __tablename__ = 'feedBack'
+    feedBackId=db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.String)
+    surname = db.Column(db.String)
+    phone=db.Column(db.Integer)
+    email=db.Column(db.String)
+    country=db.Column(db.String)
+    address=db.Column(db.String)
+    comment=db.Column(db.String)
+
+    def get_id(self):
+        return self.feedBackId
 

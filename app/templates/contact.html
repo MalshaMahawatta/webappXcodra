@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+
+
+    <div class="ui form-user center raised very padded text container segment">
+		<form class="ui form" action="{{ url_for('feedBackbp.addFeedBack') }}" method="post">
+			<h4 class="ui dividing header">Customer Feedback</h4>
+            {{ m.render_field(form.name) }}
+            {{ m.render_field(form.surname) }}
+            {{ m.render_field(form.phone) }}
+            {{ m.render_field(form.email) }}
+	    	{{ m.render_field(form.country) }}
+            {{ m.render_field(form.address) }}
+            {{ m.render_field(form.comment) }}
+		  	{{ form.csrf_token }}
+		  	<button class="ui primary button" type="submit">Submit</button>
+		</form>
+	</div>
+
+
+
+
+{% endblock %}

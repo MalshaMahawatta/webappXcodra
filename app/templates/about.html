@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+
+
+{% block content %}
+
+
+    <div class="ui three column grid" xmlns="http://www.w3.org/1999/html">
+  <div class="column">
+    <div class="ui segment"  style="background-color: rgba(31, 15, 10, 0.57);color: #FFFFFF">
+
+
+                <div class="ui vertical left inverted menu">
+                    <div class="item">
+                        <div class="header">Gallery</div>
+                        <div class="menu">
+                            <a class="item" href="{{ url_for('gallerybp.showGallery') }}">Image Gallery</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">Facilities</div>
+                        <div class="menu">
+                            <a class="item">User Facilities</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">Offers</div>
+                        <div class="menu">
+                            <a class="item" href="{{ url_for('offersbp.viewOffers') }}">Available Offers</a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="header">Check-In</div>
+                        <div class="menu">
+                            <a class="item" href="{{ url_for('guestbp.addGuest') }}">Booking</a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="header">About Us</div>
+                        <div class="menu">
+                            <a class="item">About Us</a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">Contact Us</div>
+                        <div class="menu">
+                            <a class="item">Customer Feedback</a>
+                        </div>
+                    </div>
+                </div>
+</div>
+  </div>
+<div class="column">
+    <div class="ui segment"  style="background-color: rgba(31, 15, 10, 0.57);color: #FFFFFF">
+        <p><h4><center>About the Xcodra Hotel</center></h4></br>
+        Galadari Hotel, Colombo which opened its doors in 1984, is a splendid tale of continual
+        improvement of product and highest standard of quality in hospitality over the past 25 years.
+        </p>
+</br>
+        <p>
+Our vision & beliefs are firmly grounded in extending a true personalized service to all our guests,
+        laced with an unforgettable luxury hotel experience with the
+        finest traditions of international hotel-keeping.
+
+The Galadari Hotel, Colombo, meticulous about maintaining the privacy of its guests has drawn in many
+        an elite personality from around the world such as heads of
+        government, prime ministers of leading nations, royalty, well known sports
+        & music personalities over the past two and half decades.
+
+Situated in the heart of the city center with many a historical building within walking distance and a
+        panoramic view of the magnificent Indian ocean,
+        the Galadari Hotel offers a rich blend of service and quality in five star luxury living.
+            </br></br>
+            Galadari Hotel, Colombo which opened its doors in 1984, is a splendid tale of continual
+        improvement of product and highest standard of quality in hospitality over the past 25 years.
+             </br></br>
+            Galadari Hotel, Colombo which opened its doors in 1984, is a splendid tale of continual
+        improvement of product and highest standard of quality in hospitality over the past 25 years.
+            Galadari Hotel, Colombo which opened its doors in 1984, is a
+</p></br>
+        </div>
+
+
+  </div>
+
+<div class="column">
+
+    <div class="ui segment "  style="background-color: rgba(31, 15, 10, 0.57);color: #FFFFFF">
+        </br></br></br>
+
+     <img class="ui medium right floated  image" src="/static/img/1.jpg">
+        </br>
+  </div>
+
+<div class="ui segment "  style="background-color: rgba(31, 15, 10, 0.57);color: #FFFFFF">
+        </br></br></br>
+
+     <img class="ui medium right floated  image" src="/static/img/8.jpg">
+        </br>
+  </div>
+
+
+
+
+</div>
+</div>
+
+
+{% endblock %}

@@ -42,18 +42,17 @@ bcrypt = Bcrypt(app)
 
 # Import the views
 
-from app.views import main, user, error,room,offers,image,gallery,guest,viewGuest,facility
+from app.views import main, user, error,room,offers,image,gallery,guest,viewGuest,facility,about,feedback
+
 app.register_blueprint(user.userbp)
 app.register_blueprint(room.roombp)
 app.register_blueprint(gallery.gallerybp)
 app.register_blueprint(offers.offersbp)
-
-
-
-
 app.register_blueprint(guest.guestbp)
 app.register_blueprint(viewGuest.viewGuestbp)
 app.register_blueprint(facility.facilitybp)
+app.register_blueprint(about.aboutbp)
+app.register_blueprint(feedback.feedBackbp)
 
 
 

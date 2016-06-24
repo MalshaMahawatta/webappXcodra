@@ -19,6 +19,7 @@ ts = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 # Create a user blueprint
 viewGuestbp = Blueprint('viewGuestbp', __name__, url_prefix='/viewGuest')
 
+
 @viewGuestbp.route('/select', methods=['GET', 'POST'])
 @login_required
 def select():
@@ -32,9 +33,9 @@ def select():
         n = number
         print number
 
-
         return redirect("http://127.0.0.1:5000/viewGuest/view")
     return render_template('payment/selectGuest.html', title='Payment', form=form)
+
 
 @viewGuestbp.route('/view', methods=['GET', 'POST'])
 @login_required
@@ -44,7 +45,7 @@ def view():
 
     print b
 
-    gnumber.availability=True
+    gnumber.availability = True
 
     db.session.commit()
 
@@ -67,6 +68,8 @@ def calculatePayment():
 
     time = models.Guest.query.filter_by(number=b).first()
     d = time.checkedInTime
+    global name, today
+    name = time.name
     print d
     y1 = d[0:-6]
     m1 = d[5:-3]
@@ -97,9 +100,9 @@ def calculatePayment():
     departureDate = date(y4, m4, d4)
 
     roomTable = models.Room.query.filter_by(number=n).first()
-    global price1
-    price1 = roomTable.roomPrice
-    global price
+    global pricebasic
+    pricebasic = roomTable.roomPrice
+    global grossprice, netprice
 
     guestRow = models.Room.query.filter_by(number=n).first()
     m = guestRow.guest_number
@@ -107,27 +110,50 @@ def calculatePayment():
 
     offerid = offerTable.offer_number
     getRate = models.Offers.query.filter_by(offerID=offerid).first()
-    global rate
+    global rate, type
     rate = getRate.percentage
+    type = getRate.title
 
     if arrivaldate == departureDate:
-        price = price1 - (price1 * rate / 100)
+        grossprice = pricebasic
+        netprice = pricebasic - (pricebasic * rate / 100)
 
     else:
 
         duration1 = departureDate - arrivaldate
         print duration1.days
-        p = duration1 * price1
+        p = duration1 * pricebasic
 
         print p
 
-        g = p - (p * rate / 100)
+        g = p
 
         h = str(g)
-        price = h[:-13]
-        print price
+        grossprice = h[:-13]
+        print grossprice
+
+        z = p - (p * rate / 100)
+        print z
+        y = z
+        x = str(y)
+        netprice = x[:-13]
+        print netprice
 
     room_type = models.Room.query.filter_by(number=n).first()
     print room_type.type
 
-    return render_template('payment/price.html', title='Payment Details', price=price)
+    if request.method == 'POST':
+        payment = models.Payments(
+            paidBy=name,
+            date=today,
+            netprice=netprice,
+            grossprice=grossprice
+        )
+        db.session.add(payment)
+        db.session.commit()
+
+        flash('Payment details added successfully.Thank you,Come again.', 'positive')
+        return redirect("http://127.0.0.1:5000/user/account")
+
+    return render_template('payment/price.html', title='Payment Details', grossprice=grossprice, netprice=netprice,
+                           rate=rate, type=type)

@@ -7,12 +7,12 @@
             <h2 class="ui header">Guest Details</h2>
             <form class="ui form" action="{{ url_for('viewGuestbp.view') }}" method="post">
 
-                Number: {{ payments.number }}<br/>
-                Name: {{ payments.name }}<br/>
-                Surname:{{ payments.surname }}<br/>
-                Phone No: {{ payments.phone }}<br/>
-                Email:{{ payments.email }}<br/>
-                Type: {{ payments.type }}<br/>
+                Number      : {{ payments.number }}<br/><br/><br/>
+                Name        : {{ payments.name }}<br/><br/><br/>
+                Surname     :{{ payments.surname }}<br/><br/><br/>
+                Phone No    : {{ payments.phone }}<br/><br/><br/>
+                Email       :{{ payments.email }}<br/><br/><br/><br/>
+{#                Type: {{ payments.type }}<br/>#}
 
                 <button class="ui primary button" type="submit">Check out</button>
 

@@ -5,9 +5,16 @@
     <div class="ui form-user center raised very padded text container segment">
         {% if current_user.is_authenticated %}
             <h2 class="ui header">Payment Details</h2>
-               <form class="ui form" action="viewGuest/calculatePayment" method="post">
+               <form class="ui form" action="{{ url_for('viewGuestbp.calculatePayment') }}" method="post">
 
-                   Price: {{price }}<br/><br/>
+                   <b>Gross Price without offers      :</b> {{grossprice }}<br/><br/><br/>
+
+                   <b>Offers given                    :</b>{{ type }}<br/><br/><br/>
+
+                   <b>Offer rate                       :</b>{{ rate }}<br/><br/><br/>
+
+                   <b>Net price                       :</b>{{ netprice }}<br/><br/><br/>
+
                    <button class="ui primary button" type="submit">Paid</button>
 
 
@@ -16,4 +23,4 @@
         {% endif %}
     </div>
 
-{% endblock %}
+{% endblock %}`

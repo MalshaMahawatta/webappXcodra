@@ -72,6 +72,7 @@ def addGuest():
         print roomNumberToMap
         roomToLink = models.Room.query.filter_by(number=roomNumberToMap).first()
         roomToLink.guests.append(guest)
+        roomToLink.availability=False
         #roomToLink.guests(guest)
         db.session.commit()
 
@@ -85,11 +86,11 @@ def addGuest():
         #roomToLink.guests(guest)
         db.session.commit()
 
-        gnumber1 = models.Room.query.filter_by(number=index).first()
-
-        gnumber1.availability = False
-
-        db.session.commit()
+        # gnumber1 = models.Room.query.filter_by(number=index).first()
+        #
+        # gnumber1.availability = False
+        #
+        # db.session.commit()
 
 
 

@@ -1,6 +1,6 @@
 __author__ = 'Raditha'
 from flask import (Blueprint, render_template, redirect, url_for,
-                   abort, flash)
+                   abort, flash,request)
 from flask.ext.login import login_user, logout_user, login_required
 from itsdangerous import URLSafeTimedSerializer
 from app import app, models, db
@@ -17,8 +17,26 @@ roombp = Blueprint('roombp', __name__, url_prefix='/room')
 @roombp.route('/addRoom', methods=['GET', 'POST'])
 @login_required
 def addRoom():
+
+
+
+    global y
+    x= models.Room.query.order_by('-number').first()
+    print x
+
+    h=x.number
+
+
+    global  y
+    y=h+1
+    print y
+
     form = room_details.Rooms()
-    if form.validate_on_submit():
+
+
+
+    #if form.validate_on_submit():
+    if request.method == 'POST':
         type=form.type.data
         print(type)
         if int(type) is 1:
@@ -26,7 +44,7 @@ def addRoom():
             room = models.Room(
 
 
-            number=form.number.data,
+            number=y,
             type="superior",
             roomPrice=75000,
             availability=True,
@@ -38,7 +56,8 @@ def addRoom():
             room = models.Room(
 
 
-            number=form.number.data,
+            #number=form.number.data,
+            number=y,
             type="Delux",
             roomPrice=50000,
             availability=True,
@@ -51,7 +70,7 @@ def addRoom():
             room = models.Room(
 
 
-            number=form.number.data,
+            number=y,
             type="Standard",
             roomPrice=25000,
             availability=True,
@@ -64,7 +83,7 @@ def addRoom():
 
         flash('added room details sucessfully.', 'positive')
         return redirect(url_for('index'))
-    return render_template('room/details.html', form=form, title='Room Details')
+    return render_template('room/details.html', form=form, title='Room Details',y=y)
 
 
 @roombp.route('/showRooms', methods=['GET', 'POST'])

@@ -130,3 +130,17 @@ class FeedBack(db.Model, UserMixin):
     def get_id(self):
         return self.feedBackId
 
+
+class Payments(db.Model, UserMixin):
+    ''' offer details. '''
+
+    __tablename__ = 'payment'
+    paymentID = db.Column(db.Integer, primary_key=True,autoincrement=True)
+    paidBy = db.Column(db.String)
+    date = db.Column(db.String)
+    grossprice =db.Column(db.Integer)
+    netprice =db.Column(db.Integer)
+
+
+    def get_id(self):
+        return self.title

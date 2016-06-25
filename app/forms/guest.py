@@ -42,6 +42,10 @@ class Guest(Form):
                    description='Contact Number')
     email = StringField(validators=[Required()],
                    description='Guest Email')
+    nationality = StringField(validators=[Required()],
+                   description='Guest Nationality')
+    passportNo = StringField(validators=[Required()],
+                   description='Guest Passport Number')
 
     # type = StringField(validators=[Required(), Length(min=2)],
     #                description='Room Type')

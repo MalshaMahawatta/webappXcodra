@@ -37,7 +37,11 @@ def addGuest():
     #append offerID column
     availableOffers=[]
     availableOffersObj= models.Offers.query.all()
-    for z in availableOffersObj:
+    if availableRoomsObj==[]:
+
+        flash('No available rooms.Sorry for the inconvenience.', 'negative')
+    else:
+     for z in availableOffersObj:
         aOfferDetails=str(z.offerID) + '-' + str(z.title)
         availableOffers.append(aOfferDetails)
     print availableOffers
@@ -59,6 +63,8 @@ def addGuest():
             surname=form.surname.data,
             phone=form.phone.data,
             email=form.email.data,
+            nationality=form.nationality.data,
+            passportNo=form.passportNo.data,
             checkedInTime=checkedInTime
         )
 

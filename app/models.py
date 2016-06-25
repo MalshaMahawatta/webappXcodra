@@ -67,6 +67,8 @@ class Guest(db.Model, UserMixin):
     surname = db.Column(db.String)
     phone = db.Column(db.String)
     email = db.Column(db.String)
+    nationality=db.Column(db.String)
+    passportNo=db.Column(db.String)
     type = db.Column(db.String)
     checkedInTime = db.Column(db.String)
     recognized=db.Column(db.Boolean)
@@ -123,6 +125,7 @@ class FeedBack(db.Model, UserMixin):
     surname = db.Column(db.String)
     phone=db.Column(db.Integer)
     email=db.Column(db.String)
+
     country=db.Column(db.String)
     address=db.Column(db.String)
     comment=db.Column(db.String)
